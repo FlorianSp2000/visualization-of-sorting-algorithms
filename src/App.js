@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Selectionsort from './Selectionsort';
 import Intro from './Intro'
+import GeneralStats from './GeneralStats';
+
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
         <Intro />
         <br></br>
           <Selectionsort>
-            
+
           </Selectionsort>
+          <br></br>
+          <GeneralStats/>
       </header>
     </div>
   );
