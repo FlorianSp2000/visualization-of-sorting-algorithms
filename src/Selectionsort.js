@@ -26,7 +26,7 @@ function change_colors_to_colorblind() {
       bars[i].style.backgroundColor = default_bar_color;
     }
     colorblind_active = true;
-    document.getElementById("Button3").innerHTML = "standard palette";
+    document.getElementById("selectionsort-Button3").innerHTML = "standard palette";
   }
   else {
     default_bar_color = "rgb(0, 183, 255)";
@@ -38,7 +38,7 @@ function change_colors_to_colorblind() {
       bars[i].style.backgroundColor = default_bar_color;
     }
     colorblind_active = false;    
-    document.getElementById("Button3").innerHTML = "colorblind palette";
+    document.getElementById("selectionsort-Button3").innerHTML = "colorblind palette";
   }
 
 
@@ -71,7 +71,7 @@ function generatebars(num = 20, sequence) {
   if (sequence == null) {
     var sequence = new Array(num);
     for (let i=0; i<num; i+=1) {
-      sequence[i] = String(Math.floor(Math.random() * 100) + 1); 
+      sequence[i] = String(Math.floor(Math.random() * 99) + 1); 
     }
   }
 
@@ -118,6 +118,8 @@ function generatebars(num = 20, sequence) {
   
     // Assign value to "label"
     barLabel.innerHTML = value;
+
+    barLabel.style.fontSize = `${Math.min(width*0.75, 30)}px`;
       
     // Append "Label" to "div"
       bar.appendChild(barLabel);
@@ -303,16 +305,16 @@ async function SelectionSort(delay = delayy) {
   bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
   
   // To enable the button "Generate New Array" after final(sorted)
-  document.getElementById("Button1").disabled = false;
-  document.getElementById("Button1").style.backgroundColor = "#6f459e";
+  document.getElementById("selectionsort-Button1").disabled = false;
+  document.getElementById("selectionsort-Button1").style.backgroundColor = "#6f459e";
   
   // To enable the button "Selection Sort" after final(sorted)
-  document.getElementById("Button2").disabled = false;
-  document.getElementById("Button2").style.backgroundColor = "#6f459e";
+  document.getElementById("selectionsort-Button2").disabled = false;
+  document.getElementById("selectionsort-Button2").style.backgroundColor = "#6f459e";
 
   // to disable the change_colors_to_colorblind button
-  document.getElementById("Button3").disabled = false;
-  document.getElementById("Button3").style.backgroundColor = "#6f459e";      
+  document.getElementById("selectionsort-Button3").disabled = false;
+  document.getElementById("selectionsort-Button3").style.backgroundColor = "#6f459e";      
   setSortingIsActive(false)
 }
 
@@ -321,16 +323,16 @@ async function SelectionSort(delay = delayy) {
 function disable()
 {
   // To disable the button "Generate New Array"
-  document.getElementById("Button1").disabled = true;
-  document.getElementById("Button1").style.backgroundColor = "#d8b6ff";
+  document.getElementById("selectionsort-Button1").disabled = true;
+  document.getElementById("selectionsort-Button1").style.backgroundColor = "#d8b6ff";
   
   // To disable the button "Selection Sort"
-  document.getElementById("Button2").disabled = true;
-  document.getElementById("Button2").style.backgroundColor = "#d8b6ff";  
+  document.getElementById("selectionsort-Button2").disabled = true;
+  document.getElementById("selectionsort-Button2").style.backgroundColor = "#d8b6ff";  
 
   // to disable the change_colors_to_colorblind button
-  document.getElementById("Button3").disabled = true;
-  document.getElementById("Button3").style.backgroundColor = "#d8b6ff";    
+  document.getElementById("selectionsort-Button3").disabled = true;
+  document.getElementById("selectionsort-Button3").style.backgroundColor = "#d8b6ff";    
 }
 
 
@@ -346,15 +348,15 @@ function disable()
       <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div onClick={() => {pause_button()}}>
                             <PauseButton />
                           </div>}/>
-   <button  className="btn1" onClick={() => generatebars()} id="Button1" >
+   <button  className="btn1" onClick={() => generatebars()} id="selectionsort-Button1" >
      Generate New Array</button>   
      
    <button className="btn2" 
-           onClick={() => {SelectionSort();disable()}} id="Button2" >
+           onClick={() => {SelectionSort();disable()}} id="selectionsort-Button2" >
      Selection Sort</button>
 
      <button className="btn3" 
-           onClick={() => {change_colors_to_colorblind()}} id="Button3" >
+           onClick={() => {change_colors_to_colorblind()}} id="selectionsort-Button3" >
      colorblind palette</button>     
 
      {/* <button className="btn4" 
