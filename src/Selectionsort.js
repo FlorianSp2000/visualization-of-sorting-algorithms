@@ -201,16 +201,24 @@ async function SelectionSort(delay = delayy) {
     // Assign i to min_idx
     min_idx = i;
   
-    // Provide darkblue color to the ith bar
-    // TODO:
-    // var temp_style = getComputedStyle(bars[i]);
-    // console.log(typeof(temp_style.getPropertyValue('--next-bar-color')));
     bars[i].style.backgroundColor = next_bar_color;//"darkblue";
     for (var j = i + 1; j < bars.length; j += 1) {
   
       // Provide red color to the jth bar
       bars[j].style.backgroundColor = min_bar_color;
         
+      // check if pause button is pressed:
+      while (pause) {
+        await new Promise((resolve) =>
+          setTimeout(() => {
+            resolve();
+          }, 100)
+        );
+        if (!pause) {
+          break;
+        }
+      }      
+
       // To pause the execution of code for 300 milliseconds
       await new Promise((resolve) =>
         setTimeout(() => {
@@ -265,7 +273,7 @@ async function SelectionSort(delay = delayy) {
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, delay/4)
+        }, 75)
       );
   
     }
@@ -286,7 +294,7 @@ async function SelectionSort(delay = delayy) {
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, delay/4)
+        }, 75)
       );
   
     }    
