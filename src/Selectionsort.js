@@ -104,13 +104,52 @@ async function SelectionSort(delay = 300) {
     );    
   
     // To swap ith and (min_idx)th bar
-    var temp1 = bars[min_idx].style.height;
-    var temp2 = bars[min_idx].childNodes[0].innerText;
-    bars[min_idx].style.height = bars[i].style.height;
-    bars[i].style.height = temp1;
-    bars[min_idx].childNodes[0].innerText = bars[i].childNodes[0].innerText;
-    bars[i].childNodes[0].innerText = temp2;
-      
+
+    for (var j = min_idx; j > i; j -= 1) {
+  
+      var temp1 = bars[j-1].style.height;
+      var temp2 = bars[j-1].childNodes[0].innerText;
+      var temp3 = bars[j-1].style.backgroundColor;
+      bars[j-1].style.height = bars[j].style.height;
+      bars[j].style.height = temp1;
+      bars[j-1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
+      bars[j].childNodes[0].innerText = temp2;        
+      bars[j-1].style.backgroundColor = bars[j].style.backgroundColor;
+      bars[j].style.backgroundColor = temp3;
+
+      // To pause the execution of code for 300 milliseconds
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          resolve();
+        }, delay/4)
+      );
+  
+    }
+    // await new Promise((resolve) =>
+    // setTimeout(() => {
+    //   resolve();
+    // }, delay*3)
+    // );    
+    for (var j = i+2; j < min_idx+1; j += 1) {
+  
+      var temp1 = bars[j-1].style.height;
+      var temp2 = bars[j-1].childNodes[0].innerText;
+      var temp3 = bars[j-1].style.backgroundColor;
+      bars[j-1].style.height = bars[j].style.height;
+      bars[j].style.height = temp1;
+      bars[j-1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
+      bars[j].childNodes[0].innerText = temp2;   
+      bars[j-1].style.backgroundColor = bars[j].style.backgroundColor;
+      bars[j].style.backgroundColor = temp3;           
+      // To pause the execution of code for 300 milliseconds
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          resolve();
+        }, delay/4)
+      );
+  
+    }    
+
     // To pause the execution of code for 300 milliseconds
     await new Promise((resolve) =>
       setTimeout(() => {
