@@ -72,7 +72,7 @@ async function SelectionSort(delay = 300) {
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, 300)
+        }, delay)
       );
   
       // To store the integer value of jth bar to var1 
@@ -95,6 +95,13 @@ async function SelectionSort(delay = 300) {
         bars[j].style.backgroundColor = "  rgb(24, 190, 255)";
       }
     }
+
+    // To pause the execution of code for 300 milliseconds
+    await new Promise((resolve) =>
+      setTimeout(() => {
+        resolve();
+      }, 2*delay)
+    );    
   
     // To swap ith and (min_idx)th bar
     var temp1 = bars[min_idx].style.height;
@@ -108,7 +115,7 @@ async function SelectionSort(delay = 300) {
     await new Promise((resolve) =>
       setTimeout(() => {
         resolve();
-      }, 300)
+      }, 2*delay)
     );
   
     // Provide skyblue color to the (min-idx)th bar
