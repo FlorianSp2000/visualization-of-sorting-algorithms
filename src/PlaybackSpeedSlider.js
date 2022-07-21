@@ -35,7 +35,7 @@ function valueLabelFormat(value) {
   return marks.findIndex((mark) => mark.value === value) + 1;
 }
 
-const PlaybackSpeedButton = (props) => {
+const PlaybackSpeedSlider = (props) => {
     function handleChange(event) {
         console.log(event.target.value)
         props.modifyDelay(event.target.value)
@@ -59,4 +59,4 @@ const PlaybackSpeedButton = (props) => {
       );
 };
 
-export default PlaybackSpeedButton;
+export default PlaybackSpeedSlider;

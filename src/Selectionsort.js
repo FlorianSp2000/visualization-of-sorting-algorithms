@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 
   import './selectionsort.css'
 import SequenceInputButton from './SequenceInputButton';
-import PlaybackSpeedButton from './PlaybackSpeedButton';
-import SelectInput from '@mui/material/Select/SelectInput';
+import PlaybackSpeedSlider from './PlaybackSpeedSlider';
+import PauseButton from './PauseButton';
+import PlayWidget from './PlayWidget';
 
 var colorblind_active = false;
 var default_bar_color = "rgb(0, 183, 255)";
@@ -12,16 +13,6 @@ var next_bar_color = "rgb(10, 26, 177)";
 var min_bar_color = "rgb(189, 22, 22)";
 var pause = false;
 
-function pause_button() {
-  if (pause==false) {
-    pause=true;
-    document.getElementById("Button4").innerHTML = "play";
-  }
-  else {
-    pause=false;
-    document.getElementById("Button4").innerHTML = "pause";
-  }
-}
 
 // // function to change colors to colorblind:
 function change_colors_to_colorblind() {
@@ -139,6 +130,8 @@ function generatebars(num = 20, sequence) {
 function Selectionsort(props) {
   const [sortingIsActive, setSortingIsActive] = useState(false);
   const [delayy, setDelayy] = useState(300);
+  // const [pause, setPause] = useState(false)
+  // let pause = false
   // Change Playback speed
   function modifyDelay(selected_velocity) {
 
@@ -160,6 +153,16 @@ function Selectionsort(props) {
         break;
     }
   }
+  function pause_button() {
+    console.log("pause button clicked", pause)
+    if (pause==false) {
+      pause=true;
+    }
+    else {
+      pause=false;
+    }
+  }
+  
 
 // // asynchronous function to perform "Selection Sort"
 async function SelectionSort(delay = delayy) {
@@ -170,6 +173,7 @@ async function SelectionSort(delay = delayy) {
    var min_idx = 0;
    for (var i = 0; i < bars.length-1; i += 1) {
     // check if pause button is pressed:
+    console.log("pause", pause)
     while (pause) {
       await new Promise((resolve) =>
         setTimeout(() => {
@@ -330,13 +334,18 @@ function disable()
 }
 
 
+// const playComponent = () => <div onClick={() => {pause_button()}}>
+//                             <PauseButton />
+//                           </div>
 
     return (
         <div>
-               <section className="head">Selection Sort Visualizer</section>
+    <section className="head">Selection Sort Visualizer</section>
    <section className="data-container"></section> 
       <SequenceInputButton processInputSequence={processInputSequence}/>
-      <PlaybackSpeedButton sortingIsActive={sortingIsActive} modifyDelay={modifyDelay}/>
+      <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div onClick={() => {pause_button()}}>
+                            <PauseButton />
+                          </div>}/>
    <button  className="btn1" onClick={() => generatebars()} id="Button1" >
      Generate New Array</button>   
      
@@ -348,10 +357,9 @@ function disable()
            onClick={() => {change_colors_to_colorblind()}} id="Button3" >
      colorblind palette</button>     
 
-     <button className="btn4" 
+     {/* <button className="btn4" 
            onClick={() => {pause_button()}} id="Button4" >
-     pause</button>     
-
+     pause</button>      */}
         </div>
     );
   }
