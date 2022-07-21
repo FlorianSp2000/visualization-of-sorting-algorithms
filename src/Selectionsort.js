@@ -1,7 +1,42 @@
   import React from 'react';
   import './selectionsort.css'
 import SequenceInputButton from './SequenceInputButton';
-// // function to generate bars
+
+var colorblind_active = false;
+var default_bar_color = "rgb(0, 183, 255)";
+var finished_bar_color = "rgb(49, 226, 13)";
+var next_bar_color = "rgb(10, 26, 177)";
+var min_bar_color = "rgb(189, 22, 22)";
+
+// // function to change colors to colorblind:
+function change_colors_to_colorblind() {
+  if (!colorblind_active) {
+    default_bar_color = "rgb(240,228,66)";
+    finished_bar_color = "rgb(0,158,115)";
+    next_bar_color = "rgb(0,114,178)";
+    min_bar_color = "rgb(213,94,0)";
+    let bars = document.querySelectorAll(".bar")
+    for (let i=0; i<bars.length; i+=1) {
+      bars[i].style.backgroundColor = default_bar_color;
+    }
+    colorblind_active = true;
+    document.getElementById("Button3").innerHTML = "standard palette";
+  }
+  else {
+    default_bar_color = "rgb(0, 183, 255)";
+    finished_bar_color = "rgb(49, 226, 13)";
+    next_bar_color = "rgb(10, 26, 177)";
+    min_bar_color = "rgb(189, 22, 22)";
+    let bars = document.querySelectorAll(".bar")
+    for (let i=0; i<bars.length; i+=1) {
+      bars[i].style.backgroundColor = default_bar_color;
+    }
+    colorblind_active = false;    
+    document.getElementById("Button3").innerHTML = "colorblind palette";
+  }
+
+
+}
 
 // // function to delete bars
 function deletebars() {
@@ -26,6 +61,9 @@ function generatebars(num = 20, sequence) {
         
       // To create element "div"
       const bar = document.createElement("div");
+
+      // Provide color to the bar
+      bar.style.backgroundColor = default_bar_color;
     
       // To add class "bar" to "div"
       bar.classList.add("bar");
@@ -61,6 +99,9 @@ function generatebars(num = 20, sequence) {
       // To create element "div"
       const bar = document.createElement("div");
     
+      // Provide color to the bar
+      bar.style.backgroundColor = default_bar_color;
+
       // To add class "bar" to "div"
       bar.classList.add("bar");
     
@@ -106,11 +147,14 @@ async function SelectionSort(delay = 300) {
     min_idx = i;
   
     // Provide darkblue color to the ith bar
-    bars[i].style.backgroundColor = "darkblue";
+    // TODO:
+    // var temp_style = getComputedStyle(bars[i]);
+    // console.log(typeof(temp_style.getPropertyValue('--next-bar-color')));
+    bars[i].style.backgroundColor = next_bar_color;//"darkblue";
     for (var j = i + 1; j < bars.length; j += 1) {
   
       // Provide red color to the jth bar
-      bars[j].style.backgroundColor = "red";
+      bars[j].style.backgroundColor = min_bar_color;
         
       // To pause the execution of code for 300 milliseconds
       await new Promise((resolve) =>
@@ -130,13 +174,13 @@ async function SelectionSort(delay = 300) {
         if (min_idx !== i) {
   
           // Provide skyblue color to the (min-idx)th bar
-          bars[min_idx].style.backgroundColor = "  rgb(24, 190, 255)";
+          bars[min_idx].style.backgroundColor = default_bar_color;//"  rgb(24, 190, 255)";
         }
         min_idx = j;
       } else {
   
         // Provide skyblue color to the jth bar
-        bars[j].style.backgroundColor = "  rgb(24, 190, 255)";
+        bars[j].style.backgroundColor = default_bar_color;//"  rgb(24, 190, 255)";
       }
     }
 
@@ -200,13 +244,13 @@ async function SelectionSort(delay = 300) {
     );
   
     // Provide skyblue color to the (min-idx)th bar
-    bars[min_idx].style.backgroundColor = "  rgb(24, 190, 255)";
+    bars[min_idx].style.backgroundColor = default_bar_color;//"  rgb(24, 190, 255)";
   
     // Provide lightgreen color to the ith bar
-    bars[i].style.backgroundColor = " rgb(49, 226, 13)";
+    bars[i].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";
   }
   // Provide lightgreen color to the ith bar
-  bars[bars.length-1].style.backgroundColor = " rgb(49, 226, 13)";  
+  bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
   
   // To enable the button "Generate New Array" after final(sorted)
   document.getElementById("Button1").disabled = false;
@@ -215,6 +259,10 @@ async function SelectionSort(delay = 300) {
   // To enable the button "Selection Sort" after final(sorted)
   document.getElementById("Button2").disabled = false;
   document.getElementById("Button2").style.backgroundColor = "#6f459e";
+
+  // to disable the change_colors_to_colorblind button
+  document.getElementById("Button3").disabled = false;
+  document.getElementById("Button3").style.backgroundColor = "#6f459e";      
 }
 
   
@@ -228,6 +276,10 @@ function disable()
   // To disable the button "Selection Sort"
   document.getElementById("Button2").disabled = true;
   document.getElementById("Button2").style.backgroundColor = "#d8b6ff";  
+
+  // to disable the change_colors_to_colorblind button
+  document.getElementById("Button3").disabled = true;
+  document.getElementById("Button3").style.backgroundColor = "#d8b6ff";    
 }
 
 
@@ -243,6 +295,10 @@ function disable()
    <button className="btn2" 
            onClick={() => {SelectionSort();disable()}} id="Button2" >
      Selection Sort</button>
+
+     <button className="btn3" 
+           onClick={() => {change_colors_to_colorblind()}} id="Button3" >
+     colorblind palette</button>     
 
         </div>
     );
