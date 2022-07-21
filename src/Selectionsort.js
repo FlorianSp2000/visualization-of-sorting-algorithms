@@ -3,12 +3,25 @@ import React, { useState } from 'react';
   import './selectionsort.css'
 import SequenceInputButton from './SequenceInputButton';
 import PlaybackSpeedButton from './PlaybackSpeedButton';
+import SelectInput from '@mui/material/Select/SelectInput';
 
 var colorblind_active = false;
 var default_bar_color = "rgb(0, 183, 255)";
 var finished_bar_color = "rgb(49, 226, 13)";
 var next_bar_color = "rgb(10, 26, 177)";
 var min_bar_color = "rgb(189, 22, 22)";
+var pause = false;
+
+function pause_button() {
+  if (pause==false) {
+    pause=true;
+    document.getElementById("Button4").innerHTML = "play";
+  }
+  else {
+    pause=false;
+    document.getElementById("Button4").innerHTML = "pause";
+  }
+}
 
 // // function to change colors to colorblind:
 function change_colors_to_colorblind() {
@@ -173,7 +186,18 @@ async function SelectionSort(delay = delayy) {
   // Assign 0 to min_idx
    var min_idx = 0;
    for (var i = 0; i < bars.length-1; i += 1) {
-  
+    // check if pause button is pressed:
+    while (pause) {
+      await new Promise((resolve) =>
+        setTimeout(() => {
+          resolve();
+        }, 100)
+      );
+      if (!pause) {
+        break;
+      }
+    }
+
     // Assign i to min_idx
     min_idx = i;
   
@@ -332,6 +356,10 @@ function disable()
      <button className="btn3" 
            onClick={() => {change_colors_to_colorblind()}} id="Button3" >
      colorblind palette</button>     
+
+     <button className="btn4" 
+           onClick={() => {pause_button()}} id="Button4" >
+     pause</button>     
 
         </div>
     );
