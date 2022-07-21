@@ -1,6 +1,8 @@
-  import React from 'react';
+import React, { useState } from 'react';
+
   import './selectionsort.css'
 import SequenceInputButton from './SequenceInputButton';
+import PlaybackSpeedButton from './PlaybackSpeedButton';
 
 var colorblind_active = false;
 var default_bar_color = "rgb(0, 183, 255)";
@@ -37,11 +39,15 @@ function change_colors_to_colorblind() {
 
 
 }
+// // function to generate bars
+
+
 
 // // function to delete bars
 function deletebars() {
   document.querySelectorAll('.bar').forEach(e => e.remove());
 }
+// Create Bars with integer sequence given by user
 function processInputSequence(sequence) {
   // deletebars();
   console.log("test")
@@ -134,10 +140,35 @@ function generatebars(num = 20, sequence) {
   }
   }
 
-  function Selectionsort(props) {
-  
+function Selectionsort(props) {
+  const [sortingIsActive, setSortingIsActive] = useState(false);
+  const [delayy, setDelayy] = useState(300);
+  // Change Playback speed
+  function modifyDelay(selected_velocity) {
+
+    switch(selected_velocity) {
+      case 0:
+        setDelayy(300 * 4)
+        break;
+      case 25:
+      setDelayy(300 * 2)
+      break;
+      case 50:
+      setDelayy(300 * 1)
+      break;
+      case 75:
+      setDelayy(300 / 1.5)
+      break;
+      case 100:
+        setDelayy(300 / 2)
+        break;
+    }
+  }
+
 // // asynchronous function to perform "Selection Sort"
-async function SelectionSort(delay = 300) {
+async function SelectionSort(delay = delayy) {
+
+  setSortingIsActive(true)
   let bars = document.querySelectorAll(".bar");
   // Assign 0 to min_idx
    var min_idx = 0;
@@ -263,6 +294,7 @@ async function SelectionSort(delay = 300) {
   // to disable the change_colors_to_colorblind button
   document.getElementById("Button3").disabled = false;
   document.getElementById("Button3").style.backgroundColor = "#6f459e";      
+  setSortingIsActive(false)
 }
 
   
@@ -289,6 +321,7 @@ function disable()
                <section className="head">Selection Sort Visualizer</section>
    <section className="data-container"></section> 
       <SequenceInputButton processInputSequence={processInputSequence}/>
+      <PlaybackSpeedButton sortingIsActive={sortingIsActive} modifyDelay={modifyDelay}/>
    <button  className="btn1" onClick={() => generatebars()} id="Button1" >
      Generate New Array</button>   
      
