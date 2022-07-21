@@ -60,98 +60,81 @@ function change_colors_to_colorblind() {
 function deletebars() {
   document.querySelectorAll('.bar').forEach(e => e.remove());
 }
+
+
 // Create Bars with integer sequence given by user
 function processInputSequence(sequence) {
   // deletebars();
   console.log("test")
   generatebars(20, sequence)
 }
+
+
 // // function to generate bars
 function generatebars(num = 20, sequence) {
   const container = document.querySelector(".data-container");
   // delete old bars
   deletebars()
+
+  // if sequence is null, generate sequence from random numbers
+  if (sequence == null) {
+    var sequence = new Array(num);
+    for (let i=0; i<num; i+=1) {
+      sequence[i] = String(Math.floor(Math.random() * 100) + 1); 
+    }
+  }
+
+  // determine max value for uniform height
+  var max_value = parseInt(sequence[0]);
+  for (let i=0; i<sequence.length; i+=1) {
+    if (parseInt(sequence[i]) > max_value) {
+      max_value = parseInt(sequence[i]);
+    }
+  }
+
+  // calculate width, so that the algorithm is approximately 600 px wide
+  const width = 600 / sequence.length;
+      
+  // create bars
+  for (let i = 0; i < sequence.length; i += 1) {
   
-  if (sequence != null) {
-    for (let i = 0; i < sequence.length; i += 1) {
-    
-      // To generate random values from 1 to 100
-      const value = sequence[i]
-        
-      // To create element "div"
-      const bar = document.createElement("div");
+    // To generate random values from 1 to 100
+    const value = sequence[i]
+      
+    // To create element "div"
+    const bar = document.createElement("div");
 
-      // Provide color to the bar
-      bar.style.backgroundColor = default_bar_color;
-    
-      // To add class "bar" to "div"
-      bar.classList.add("bar");
-    
-      // Provide height to the bar
-      bar.style.height = `${value * 3}px`;
-    
-      // Translate the bar towards positive X axis 
-      bar.style.transform = `translateX(${i * 30}px)`;
-        
-      // To create element "label"
-      const barLabel = document.createElement("label");
-    
-      // To add class "bar_id" to "label"
-      barLabel.classList.add("bar_id");
-    
-      // Assign value to "label"
-      barLabel.innerHTML = value;
-        
-      // Append "Label" to "div"
-        bar.appendChild(barLabel);
-    
-        container.appendChild(bar);
-    } 
-  }
-  else {
-    //for loop to generate <num> bars
-    for (let i = 0; i < num; i += 1) {
-    
-      // To generate random values from 1 to 100
-      const value = Math.floor(Math.random() * 100) + 1; 
-        
-      // To create element "div"
-      const bar = document.createElement("div");
-    
-      // Provide color to the bar
-      bar.style.backgroundColor = default_bar_color;
+    // Provide color to the bar
+    bar.style.backgroundColor = default_bar_color;
+  
+    // To add class "bar" to "div"
+    bar.classList.add("bar");
+  
+    // Provide height to the bar
+    bar.style.height = `${parseInt(value) * 300 / max_value}px`;
 
-      // To add class "bar" to "div"
-      bar.classList.add("bar");
-    
-      // Provide height to the bar
-      bar.style.height = `${value * 3}px`;
-    
-      // Translate the bar towards positive X axis 
-      bar.style.transform = `translateX(${i * 30}px)`;
-        
-      // To create element "label"
-      const barLabel = document.createElement("label");
-    
-      // To add class "bar_id" to "label"
-      barLabel.classList.add("bar_id");
-    
-      // Assign value to "label"
-      barLabel.innerHTML = value;
-        
-      // Append "Label" to "div"
-      if (bar != null) {
-          bar.appendChild(barLabel);
+    // Provide width to the bar
+    bar.style.width = `${width}px`;
 
-      }
-    
-      // Append "div" to "data-container div"
-      if (container != null ) {
-        container.appendChild(bar);
-      }
-    } 
-  }
-  }
+    // Translate the bar towards positive X axis 
+    bar.style.transform = `translateX(${i * (width+2)}px)`;
+      
+    // To create element "label"
+    const barLabel = document.createElement("label");
+  
+    // To add class "bar_id" to "label"
+    barLabel.classList.add("bar_id");
+  
+    // Assign value to "label"
+    barLabel.innerHTML = value;
+      
+    // Append "Label" to "div"
+      bar.appendChild(barLabel);
+  
+      container.appendChild(bar);
+  } 
+}
+
 
 function Selectionsort(props) {
   const [sortingIsActive, setSortingIsActive] = useState(false);

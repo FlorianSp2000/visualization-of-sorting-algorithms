@@ -27,7 +27,7 @@ body {
 }
   
 .bar {
-    width: 28px;
+    /* width: 28px; */
     position: absolute;
     left: 0;
     bottom: 0;
