@@ -62,3 +62,15 @@ body {
     font-size: 16px;
     border: white;
 }
+
+.btn3 {
+    padding: 12px;
+    font-weight: bolder;
+    background-color: #6f459e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    border: white;
+    margin-top: 4vw;
+
+}

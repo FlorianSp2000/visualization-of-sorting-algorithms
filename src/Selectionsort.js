@@ -1,18 +1,57 @@
   import React from 'react';
   import './selectionsort.css'
-
+import SequenceInputButton from './SequenceInputButton';
+// // function to generate bars
 
 // // function to delete bars
 function deletebars() {
   document.querySelectorAll('.bar').forEach(e => e.remove());
 }
-
+function processInputSequence(sequence) {
+  // deletebars();
+  console.log("test")
+  generatebars(20, sequence)
+}
 // // function to generate bars
-function generatebars(num = 20) {
-    const container = document.querySelector(".data-container");
-    // delete old bars
-    deletebars()
-
+function generatebars(num = 20, sequence) {
+  const container = document.querySelector(".data-container");
+  // delete old bars
+  deletebars()
+  
+  if (sequence != null) {
+    for (let i = 0; i < sequence.length; i += 1) {
+    
+      // To generate random values from 1 to 100
+      const value = sequence[i]
+        
+      // To create element "div"
+      const bar = document.createElement("div");
+    
+      // To add class "bar" to "div"
+      bar.classList.add("bar");
+    
+      // Provide height to the bar
+      bar.style.height = `${value * 3}px`;
+    
+      // Translate the bar towards positive X axis 
+      bar.style.transform = `translateX(${i * 30}px)`;
+        
+      // To create element "label"
+      const barLabel = document.createElement("label");
+    
+      // To add class "bar_id" to "label"
+      barLabel.classList.add("bar_id");
+    
+      // Assign value to "label"
+      barLabel.innerHTML = value;
+        
+      // Append "Label" to "div"
+        bar.appendChild(barLabel);
+    
+        container.appendChild(bar);
+    } 
+  }
+  else {
     //for loop to generate <num> bars
     for (let i = 0; i < num; i += 1) {
     
@@ -51,6 +90,7 @@ function generatebars(num = 20) {
         container.appendChild(bar);
       }
     } 
+  }
   }
 
   function Selectionsort(props) {
@@ -196,7 +236,7 @@ function disable()
         <div>
                <section className="head">Selection Sort Visualizer</section>
    <section className="data-container"></section> 
-      
+      <SequenceInputButton processInputSequence={processInputSequence}/>
    <button  className="btn1" onClick={() => generatebars()} id="Button1" >
      Generate New Array</button>   
      
