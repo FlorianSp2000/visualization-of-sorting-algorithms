@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import GeekForGeeks from './GeekForGeeks';
+import Selectionsort from './Selectionsort';
 import Intro from './Intro'
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
         <br></br>
         <Intro />
         <br></br>
-          <GeekForGeeks>
+          <Selectionsort>
             
-          </GeekForGeeks>
+          </Selectionsort>
       </header>
     </div>
   );

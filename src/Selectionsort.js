@@ -1,5 +1,5 @@
   import React from 'react';
-  import './gfg.css'
+  import './selectionsort.css'
 
 // // function to generate bars
 
@@ -47,7 +47,7 @@ function generatebars(num = 20) {
   }
   
 
-  function GeekForGeeks(props) {
+  function Selectionsort(props) {
 
   
   
@@ -167,5 +167,5 @@ function disable()
     );
   }
   
-  export default GeekForGeeks;
+  export default Selectionsort;
   
