@@ -1,12 +1,19 @@
   import React from 'react';
   import './selectionsort.css'
 
-// // function to generate bars
 
+// // function to delete bars
+function deletebars() {
+  document.querySelectorAll('.bar').forEach(e => e.remove());
+}
+
+// // function to generate bars
 function generatebars(num = 20) {
     const container = document.querySelector(".data-container");
+    // delete old bars
+    deletebars()
 
-    //for loop to generate 20 bars
+    //for loop to generate <num> bars
     for (let i = 0; i < num; i += 1) {
     
       // To generate random values from 1 to 100
@@ -43,20 +50,17 @@ function generatebars(num = 20) {
       if (container != null ) {
         container.appendChild(bar);
       }
-    }
+    } 
   }
-  
 
   function Selectionsort(props) {
-
-  
   
 // // asynchronous function to perform "Selection Sort"
 async function SelectionSort(delay = 300) {
   let bars = document.querySelectorAll(".bar");
   // Assign 0 to min_idx
    var min_idx = 0;
-   for (var i = 0; i < bars.length; i += 1) {
+   for (var i = 0; i < bars.length-1; i += 1) {
   
     // Assign i to min_idx
     min_idx = i;
@@ -105,6 +109,7 @@ async function SelectionSort(delay = 300) {
   
     // To swap ith and (min_idx)th bar
 
+    // first swap backwards
     for (var j = min_idx; j > i; j -= 1) {
   
       var temp1 = bars[j-1].style.height;
@@ -125,11 +130,8 @@ async function SelectionSort(delay = 300) {
       );
   
     }
-    // await new Promise((resolve) =>
-    // setTimeout(() => {
-    //   resolve();
-    // }, delay*3)
-    // );    
+
+    // then swap forwards
     for (var j = i+2; j < min_idx+1; j += 1) {
   
       var temp1 = bars[j-1].style.height;
@@ -163,6 +165,8 @@ async function SelectionSort(delay = 300) {
     // Provide lightgreen color to the ith bar
     bars[i].style.backgroundColor = " rgb(49, 226, 13)";
   }
+  // Provide lightgreen color to the ith bar
+  bars[bars.length-1].style.backgroundColor = " rgb(49, 226, 13)";  
   
   // To enable the button "Generate New Array" after final(sorted)
   document.getElementById("Button1").disabled = false;
@@ -172,16 +176,7 @@ async function SelectionSort(delay = 300) {
   document.getElementById("Button2").disabled = false;
   document.getElementById("Button2").style.backgroundColor = "#6f459e";
 }
-  
-// // Call "generatebars" function
-generatebars();
-  
-// // function to generate new random array 
- function generate()
-{
-    console.log("test")
-  window.location.reload();
- }
+
   
 // //  function to disable the button
 function disable()
