@@ -78,8 +78,7 @@ function togglePauseButton() {
 
 // Create Bars with integer sequence given by user
 function processInputSequence(sequence) {
-  // deletebars();
-  console.log("test")
+  
   generatebars(20, sequence);
   togglePauseButton();
 }
@@ -211,11 +210,11 @@ async function QuickSort(delay = delayy) {
         console.log("quicksort ", left, right);
         if (left<right) {
             var pivot_idx = await divide(left, right);
-            console.log("pivot index ", pivot_idx);
+            // console.log("pivot index ", pivot_idx);
             await quicksort_rek(left, pivot_idx-1);
-            console.log("first rek finished");
+            // console.log("first rek finished");
             await quicksort_rek(pivot_idx+1, right);
-            console.log("second rek finished");
+            // console.log("second rek finished");
         }
         else if (left==right) {
           bars[left].style.backgroundColor = finished_bar_color;
@@ -228,11 +227,11 @@ async function QuickSort(delay = delayy) {
         var p = left;
         var q = right-1;
         var pivot = parseInt(bars[right].childNodes[0].innerHTML);
-        console.log("pivot element ", pivot);
+        // console.log("pivot element ", pivot);
         bars[right].style.backgroundColor = pivot_bar_color;
         // create hr on level of pivot
         const hr_elems = document.querySelectorAll('.quicksort-hr');
-        console.log("hr ", hr_elems.length==0);
+        // console.log("hr ", hr_elems.length==0);
         if (hr_elems.length==0) {
           const hr = document.createElement("hr");
           hr.classList.add("quicksort-hr");
@@ -246,7 +245,7 @@ async function QuickSort(delay = delayy) {
           hr_elems[0].style.bottom = `${pivot * 300 / global_max_value - 15}px`;
         }
 
-        console.log("left and right color: ", left_running_bar_color, right_running_bar_color);
+        // console.log("left and right color: ", left_running_bar_color, right_running_bar_color);
         bars[p].style.backgroundColor = left_running_bar_color;
         bars[q].style.backgroundColor = right_running_bar_color;
 
@@ -262,7 +261,7 @@ async function QuickSort(delay = delayy) {
                 break;
               }
             }          
-            console.log("p<q, ", p, q);
+            // console.log("p<q, ", p, q);
             // bars[p].style.backgroundColor = left_running_bar_color;
             // bars[q].style.backgroundColor = right_running_bar_color;
             while ((p<q) && parseInt(bars[p].childNodes[0].innerHTML)<=pivot) {
@@ -531,14 +530,14 @@ async function QuickSort(delay = delayy) {
 
 
 
-        console.log('TEST');
+        // console.log('TEST');
         bars[p].style.backgroundColor = finished_bar_color;
-        console.log(finished_bar_color);   
+        // console.log(finished_bar_color);   
         finished_bars[p] = 1;
 
         for (let i=0; i<bars.length; i+=1) {
            
-          console.log(i, bars[i].style.backgroundColor==finished_bar_color);
+          // console.log(i, bars[i].style.backgroundColor==finished_bar_color);
           if (finished_bars[i]!=1) {
             bars[i].style.backgroundColor = default_bar_color;
           }
