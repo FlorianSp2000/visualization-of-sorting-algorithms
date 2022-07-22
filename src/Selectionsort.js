@@ -12,7 +12,7 @@ var finished_bar_color = "rgb(49, 226, 13)";
 var next_bar_color = "rgb(10, 26, 177)";
 var min_bar_color = "rgb(189, 22, 22)";
 var pause = false;
-
+var global_width = 600;
 
 // // function to change colors to colorblind:
 function change_colors_to_colorblind() {
@@ -84,7 +84,7 @@ function generatebars(num = 20, sequence) {
   }
 
   // calculate width, so that the algorithm is approximately 600 px wide
-  const width = 600 / sequence.length;
+  const width = global_width / sequence.length;
       
   // create bars
   for (let i = 0; i < sequence.length; i += 1) {
