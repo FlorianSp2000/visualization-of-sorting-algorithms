@@ -2,14 +2,14 @@ import * as React from 'react';
 
 
 
-const PauseButton = () => {
+const PauseButton = (props) => {
     function toggle() {
-        var element = document.getElementById("pause-btn");
+        var element = document.getElementById(props.id);
         element.classList.toggle("paused");
       }
       
     return (
-            <button id="pause-btn" className="pause-button" onClick={toggle}></button>
+            <button id={props.id} className="pause-button" onClick={toggle}></button>
         );
 };
 
