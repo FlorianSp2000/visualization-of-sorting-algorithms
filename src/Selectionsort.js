@@ -262,7 +262,7 @@ async function SelectionSort(delay = delayy) {
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, 75)
+        }, 25)
       );
   
     }
@@ -283,7 +283,7 @@ async function SelectionSort(delay = delayy) {
       await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, 75)
+        }, 25)
       );
   
     }    
