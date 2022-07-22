@@ -15,6 +15,7 @@ var right_running_bar_color = "rgb(189, 22, 22)";
 var pause = false;
 var global_width = 600;
 var global_max_value = 0;
+var finished_bars; // = new Array();
 
 
 // // function to change colors to colorblind:
@@ -204,6 +205,8 @@ async function QuickSort(delay = delayy) {
     let bars = document.querySelectorAll(".quicksort-bar");
     const width = global_width/ bars.length;
 
+    finished_bars = new Array(bars.length);
+
     async function quicksort_rek(left, right) {
         console.log("quicksort ", left, right);
         if (left<right) {
@@ -216,6 +219,7 @@ async function QuickSort(delay = delayy) {
         }
         else if (left==right) {
           bars[left].style.backgroundColor = finished_bar_color;
+          finished_bars[left] = 1;
         }
     }
 
@@ -530,11 +534,12 @@ async function QuickSort(delay = delayy) {
         console.log('TEST');
         bars[p].style.backgroundColor = finished_bar_color;
         console.log(finished_bar_color);   
+        finished_bars[p] = 1;
 
         for (let i=0; i<bars.length; i+=1) {
            
           console.log(i, bars[i].style.backgroundColor==finished_bar_color);
-          if (bars[i].style.backgroundColor!=finished_bar_color) {
+          if (finished_bars[i]!=1) {
             bars[i].style.backgroundColor = default_bar_color;
           }
         }
