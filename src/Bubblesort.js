@@ -200,6 +200,7 @@ async function BubbleSort(delay = delayy) {
             // To store the integer value of (j+1)th bar to var2 
             var val2 = parseInt(bars[j+1].childNodes[0].innerHTML);   
             if (val1>val2) {
+                // smooth transition
                 bars[j+1].style.transform = `translateX(${j * (width+2)}px)`;
                 bars[j].style.transform =  `translateX(${(j+1) * (width+2)}px)`;
                 // // To pause the execution of code for <delay> milliseconds
@@ -208,7 +209,7 @@ async function BubbleSort(delay = delayy) {
                     resolve();
                     }, delay)
                 );             
-                // // switch columns
+                // // switch columns back without transition and change values
                 bars[j+1].className = "bubblesort-bar-no-transition";
                 bars[j].className = "bubblesort-bar-no-transition";
                 bars[j+1].style.transform = `translateX(${(j+1) * (width+2)}px)`;
