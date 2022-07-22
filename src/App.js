@@ -3,6 +3,7 @@ import './App.css';
 import Selectionsort from './Selectionsort';
 import Intro from './Intro'
 import GeneralStats from './GeneralStats';
+import Bubblesort from './Bubblesort';
 
 
 function App() {
@@ -19,7 +20,15 @@ function App() {
 
           </Selectionsort>
           <br></br>
+
+          <br></br>
+          <Bubblesort>
+
+          </Bubblesort>
+          <br></br>
+          
           <GeneralStats/>
+          <br></br>          
       </header>
     </div>
   );
