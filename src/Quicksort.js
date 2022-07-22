@@ -71,7 +71,7 @@ function deletebars() {
 }
 
 function togglePauseButton() {
-  var element = document.getElementById("bubblesort");
+  var element = document.getElementById("quicksort");
   element.classList.toggle("paused");
 
 }
@@ -569,12 +569,14 @@ async function QuickSort(delay = delayy) {
   //   bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
     
     // To enable the button "Generate New Array" after final(sorted)
-    document.getElementById("quicksort-Button1").disabled = false;
-    document.getElementById("quicksort-Button1").style.backgroundColor = "#6f459e";
-    
-    // to disable the change_colors_to_colorblind button
-    document.getElementById("quicksort-Button3").disabled = false;
-    document.getElementById("quicksort-Button3").style.backgroundColor = "#6f459e";      
+    let btn1 = document.getElementById("quicksort-Button1")
+    btn1.disabled = false;
+    btn1.classList.remove("disabled-btn");
+
+    let btn3 = document.getElementById("quicksort-Button3")
+    btn3.disabled = false;
+    btn3.classList.remove("disabled-btn");
+
     setSortingIsActive(false)
   }
 }
@@ -584,13 +586,14 @@ async function QuickSort(delay = delayy) {
 function disable()
 {
   // To disable the button "Generate New Array"
-  document.getElementById("quicksort-Button1").disabled = true;
-  document.getElementById("quicksort-Button1").style.backgroundColor = "#d8b6ff";
-  
-  // to disable the change_colors_to_colorblind button
-  document.getElementById("quicksort-Button3").disabled = true;
-  document.getElementById("quicksort-Button3").style.backgroundColor = "#d8b6ff";    
-}
+  let btn1 = document.getElementById("quicksort-Button1")
+  btn1.disabled = true;
+  btn1.classList.add("disabled-btn");
+
+  let btn3 = document.getElementById("quicksort-Button3")
+  btn3.disabled = true;
+  btn3.classList.add("disabled-btn");
+  }
 
     return (
       <>
@@ -603,7 +606,7 @@ function disable()
                                 <PauseButton id="quicksort" sortingIsActive={sortingIsActive} pause={pause}/>
                               </div>}/>
       <button  className="btn1" onClick={() => generatebars()} id="quicksort-Button1" >
-        Generate New Array</button>   
+        Generate New Sequence</button>   
         
         <button className="btn3" 
               onClick={() => {change_colors_to_colorblind()}} id="quicksort-Button3" >

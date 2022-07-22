@@ -2,10 +2,6 @@
     display: none;
 }
   
-body {
-    background-color: rgb(255, 235, 211);
-    font-family: Verdana, sans-serif;
-}
   
 .selectionsort-head {
     margin-top: 20px;
@@ -13,17 +9,19 @@ body {
     margin-left: 20vw;
     text-align: center;
     font-size: 30px;
-    background-color: #6f459e;
-    color: white;
+    /* background-color: #24a0ed; */
+    /* color: white; */
     border-radius: 19px;
     font-weight: bolder;
 }
   
 .selectionsort-data-container {
-    width: 600px;
-    height: 384px;
+    width: 640px;
+    height: 404px;
     position: relative;
     margin: 0 auto;
+    /* box-shadow: 0px 3px 15px #fff; */
+    margin-top:1vw;
 }
   
 .selectionsort-bar {
@@ -32,6 +30,8 @@ body {
     bottom: 0;
     background-color: rgb(0, 183, 255);
     transition: 0.2s all ease;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
 }
   
 .selectionsort-bar-no-transition {
@@ -52,12 +52,12 @@ body {
 .btn1 {
     padding: 12px;
     font-weight: bolder;
-    background-color: #6f459e;
+    background-color: #24a0ed;
     border-radius: 10px;
     color: white;
     font-size: 16px;
     border: white;
-    margin-left: 3vw;
+    margin-left: 0.5vw;
     margin-top: 4vw;
     margin-right: 1vw;
     cursor:pointer;
@@ -65,7 +65,7 @@ body {
 /* .btn2 {
     padding: 12px;
     font-weight: bolder;
-    background-color: #6f459e;
+    background-color: #24a0ed;
     border-radius: 10px;
     color: white;
     font-size: 16px;
@@ -75,7 +75,7 @@ body {
 .btn3 {
     padding: 12px;
     font-weight: bolder;
-    background-color: #6f459e;
+    background-color: #24a0ed;
     border-radius: 10px;
     color: white;
     font-size: 16px;
@@ -89,7 +89,7 @@ body {
     box-sizing: border-box;
     height: 74px;
     
-    border-color: transparent transparent transparent #6f459e;
+    border-color: transparent transparent transparent #24a0ed;
     transition: 100ms all ease;
     will-change: border-width;
     cursor: pointer;
@@ -106,7 +106,7 @@ body {
         margin-left: 12.5px;
   }
 .pause-button:hover {
-    border-color: transparent transparent transparent #6f459e;
+    border-color: transparent transparent transparent #24a0ed;
 
 }
 .play-widget-grid {
@@ -121,11 +121,21 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding:10px;
+    margin-top: 2vw;
 }
 
 
 .disabled-btn {
     cursor: default;
-    background-color: #d8b6ff;
+    background-color: #b7dff9;
+}
+.sequence-prompt {
+    font-size: 16px;
+    text-align: start;
+    margin: 0px;
+    margin-left: 16px;
+    color: #24a0ed
 }

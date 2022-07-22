@@ -25,8 +25,10 @@ function SequenceInputButton(props) {
     
     
     return (
-        <FormControl className="btn3" sx={{ m: 1, width: '35ch' , marginTop: "4vw"}} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Enter Sequence of Integers</InputLabel>
+      <div style={{marginTop: "1.5vw"}}>
+        <h3 className="sequence-prompt">Enter Sequence of Integers:</h3>
+        <FormControl className="btn3" sx={{ m: 1, width: '35ch' , }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             value={values.sequence}
@@ -40,8 +42,10 @@ function SequenceInputButton(props) {
               </InputAdornment>
             }
             label="Password"
-          />
-        </FormControl>    );
+            />
+        </FormControl>    
+            </div>
+    )
 }
 
 export default SequenceInputButton;

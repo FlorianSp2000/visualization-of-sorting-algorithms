@@ -265,21 +265,15 @@ function disable()
   let btn1 = document.getElementById("bubblesort-Button1")
   btn1.disabled = true;
   btn1.classList.add("disabled-btn");
-  // btn1.style.backgroundColor = "#d8b6ff";
-  // btn1.style.cursor = null;
 
+  
   // to disable the change_colors_to_colorblind button
   let btn3 = document.getElementById("bubblesort-Button3")
   btn3.disabled = true;
   btn3.classList.add("disabled-btn");
-  // btn3.style.backgroundColor = "#d8b6ff";  
-  // btn3.style.cursor = "none";  
+
 }
 
-
-// const playComponent = () => <div onClick={() => {pause_button()}}>
-//                             <PauseButton />
-//                           </div>
 
     return (
       <>
@@ -291,7 +285,7 @@ function disable()
                                 <PauseButton id="bubblesort" />
                               </div>}/>
           <button  className="btn1" onClick={() => generatebars()} id="bubblesort-Button1" >
-            Generate New Array</button>   
+            Generate New Sequence</button>   
           <button className="btn3" 
                 onClick={() => {change_colors_to_colorblind()}} id="bubblesort-Button3" >
           colorblind palette</button>     

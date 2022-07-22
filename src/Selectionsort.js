@@ -381,7 +381,7 @@ function disable()
                                   <PauseButton id="selectionsort" sortingIsActive={sortingIsActive} pause={pause}/>
                                 </div>}/>
         <button  className="btn1" onClick={() => generatebars()} id="selectionsort-Button1" >
-          Generate New Array</button>   
+        Generate New Sequence</button>   
           
           <button className="btn3" 
                 onClick={() => {change_colors_to_colorblind()}} id="selectionsort-Button3" >

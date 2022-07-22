@@ -22,7 +22,7 @@ const marks = [
   },
   {
     value: 100,
-    label: '2x',
+    label: '2.0x',
   },
 
 ];
@@ -51,7 +51,7 @@ const PlaybackSpeedSlider = (props) => {
           step={null}
           valueLabelDisplay="auto"
           marks={marks}
-          sx={{color: "#6f459e"}}
+          sx={{color: "#24a0ed"}}
           onChange={handleChange}
           disabled={props.sortingIsActive}
         />
