@@ -1,0 +1,124 @@
+.mySlides {
+    display: none;
+}
+  
+body {
+    background-color: rgb(255, 235, 211);
+    font-family: Verdana, sans-serif;
+}
+  
+.quicksort-head {
+    margin-top: 20px;
+    margin-right: 20vw;
+    margin-left: 20vw;
+    text-align: center;
+    font-size: 30px;
+    background-color: #6f459e;
+    color: white;
+    border-radius: 19px;
+    font-weight: bolder;
+}
+  
+.quicksort-data-container {
+    width: 600px;
+    height: 384px;
+    position: relative;
+    margin: 0 auto;
+}
+  
+.quicksort-bar {
+    /* width: 28px; */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0, 183, 255);
+    transition: 0.2s all ease;
+}
+
+.quicksort-hr {
+    position: absolute;
+    height: 5px;
+    left: 0;
+    transition: 0.4s all ease;
+    opacity: 0.5;
+}
+
+.quicksort-bar-no-transition {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0, 183, 255);    
+}
+  
+.quicksort-bar_id {
+    position: relative;
+    /* top: -25%; */
+    float: top;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+}
+.btn1 {
+    padding: 12px;
+    font-weight: bolder;
+    background-color: #6f459e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    border: white;
+    margin-left: 37vw;
+    margin-top: 4vw;
+    margin-right: 1vw;
+}
+.btn2 {
+    padding: 12px;
+    font-weight: bolder;
+    background-color: #6f459e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    border: white;
+}
+
+.btn3 {
+    padding: 12px;
+    font-weight: bolder;
+    background-color: #6f459e;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    border: white;
+    margin-top: 4vw;
+
+}
+
+.pause-button {
+    box-sizing: border-box;
+    height: 74px;
+    
+    border-color: transparent transparent transparent #6f459e;
+    transition: 100ms all ease;
+    will-change: border-width;
+    cursor: pointer;
+  
+    border-style: solid;
+    border-width: 37px 0 37px 60px;
+    background: transparent;
+    margin-left:25px;
+}
+.pause-button.paused {
+        border-style: double;
+        border-width: 0px 0 0px 60px;
+    
+  }
+.pause-button:hover {
+    border-color: transparent transparent transparent #6f459e;
+
+}
+.play-widget-grid {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
