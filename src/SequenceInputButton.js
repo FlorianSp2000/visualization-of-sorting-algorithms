@@ -14,14 +14,13 @@ function SequenceInputButton(props) {
       });
     
       const handleChange = (event) => {
-        console.log("handleChange")
         setValues({sequence: event.target.value});
       };
     
       const sendSequence = () => {
-        console.log("values.sequence", values.sequence)
-        console.log(typeof values.sequence)
+        // console.log(typeof values.sequence)
         props.processInputSequence(values.sequence.split(','))
+        props.resetSortingStatus(false)
       }
     
     

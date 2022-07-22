@@ -57,11 +57,12 @@ body {
     color: white;
     font-size: 16px;
     border: white;
-    margin-left: 37vw;
+    margin-left: 3vw;
     margin-top: 4vw;
     margin-right: 1vw;
+    cursor:pointer;
 }
-.btn2 {
+/* .btn2 {
     padding: 12px;
     font-weight: bolder;
     background-color: #6f459e;
@@ -69,7 +70,7 @@ body {
     color: white;
     font-size: 16px;
     border: white;
-}
+} */
 
 .btn3 {
     padding: 12px;
@@ -80,6 +81,7 @@ body {
     font-size: 16px;
     border: white;
     margin-top: 4vw;
+    cursor:pointer;
 
 }
 
@@ -96,11 +98,12 @@ body {
     border-width: 37px 0 37px 60px;
     background: transparent;
     margin-left:25px;
+    transform: scale(0.75)
 }
 .pause-button.paused {
         border-style: double;
         border-width: 0px 0 0px 60px;
-    
+        margin-left: 12.5px;
   }
 .pause-button:hover {
     border-color: transparent transparent transparent #6f459e;
@@ -112,4 +115,17 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 
+}
+
+.sorting-toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.disabled-btn {
+    cursor: default;
+    background-color: #d8b6ff;
 }

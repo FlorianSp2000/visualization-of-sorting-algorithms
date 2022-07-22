@@ -50,12 +50,17 @@ function deletebars() {
   document.querySelectorAll('.bubblesort-bar').forEach(e => e.remove());
 }
 
+function togglePauseButton() {
+  var element = document.getElementById("bubblesort");
+  element.classList.toggle("paused");
+
+}
 
 // Create Bars with integer sequence given by user
 function processInputSequence(sequence) {
   // deletebars();
-  console.log("test")
   generatebars(20, sequence)
+  togglePauseButton()
 }
 
 
@@ -154,7 +159,7 @@ function Bubblesort(props) {
     }
   }
   function pause_button() {
-    console.log("pause button clicked", pause)
+
     if (pause==false) {
       pause=true;
     }
@@ -167,84 +172,89 @@ function Bubblesort(props) {
 // // asynchronous function to perform "Selection Sort"
 async function BubbleSort(delay = delayy) {
 
-  setSortingIsActive(true)
-  let bars = document.querySelectorAll(".bubblesort-bar");
-
-    const width = global_width/ bars.length;
-    console.log("width ", width);
-
-    for (var i = bars.length; i > 1; i -= 1) {
-        for (var j=0; j<i-1; j+=1) {
-            // check if pause button is pressed:
-            console.log("pause", pause)
-            while (pause) {
-            await new Promise((resolve) =>
-                setTimeout(() => {
-                resolve();
-                }, 100)
-            );
-            if (!pause) {
-                break;
-            }
-            }
-            bars[j].style.backgroundColor = compared_bar_color;
-            bars[j+1].style.backgroundColor = compared_bar_color;
-            // To pause the execution of code for <delay> milliseconds
-            await new Promise((resolve) =>
-                setTimeout(() => {
-                resolve();
-                }, delay)
-            );        
-            // To store the integer value of jth bar to var1 
-            var val1 = parseInt(bars[j].childNodes[0].innerHTML);
-            // To store the integer value of (j+1)th bar to var2 
-            var val2 = parseInt(bars[j+1].childNodes[0].innerHTML);   
-            if (val1>val2) {
-                // smooth transition
-                bars[j+1].style.transform = `translateX(${j * (width+2)}px)`;
-                bars[j].style.transform =  `translateX(${(j+1) * (width+2)}px)`;
-                // // To pause the execution of code for <delay> milliseconds
-                await new Promise((resolve) =>
-                    setTimeout(() => {
-                    resolve();
-                    }, delay)
-                );             
-                // // switch columns back without transition and change values
-                bars[j+1].className = "bubblesort-bar-no-transition";
-                bars[j].className = "bubblesort-bar-no-transition";
-                bars[j+1].style.transform = `translateX(${(j+1) * (width+2)}px)`;
-                bars[j].style.transform =  `translateX(${j * (width+2)}px)`;   
-                 
-                var temp1 = bars[j+1].style.height;
-                var temp2 = bars[j+1].childNodes[0].innerText;
-                bars[j+1].style.height = bars[j].style.height;
-                bars[j].style.height = temp1;
-                bars[j+1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
-                bars[j].childNodes[0].innerText = temp2;    
-                // change class back
-                bars[j+1].className = "bubblesort-bar";
-                bars[j].className = "bubblesort-bar";
-            }
-            bars[j].style.backgroundColor = default_bar_color;
-        }
-        bars[i-1].style.backgroundColor = finished_bar_color;
-    }
-  bars[0].style.backgroundColor = finished_bar_color;
-//   // Provide lightgreen color to the ith bar
-//   bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
+  if (sortingIsActive) {
+    pause_button()
+  }
+  if (!sortingIsActive) {
+    setSortingIsActive(true)
+    let bars = document.querySelectorAll(".bubblesort-bar");
   
-  // To enable the button "Generate New Array" after final(sorted)
-  document.getElementById("bubblesort-Button1").disabled = false;
-  document.getElementById("bubblesort-Button1").style.backgroundColor = "#6f459e";
+      const width = global_width/ bars.length;
+      console.log("width ", width);
   
-  // To enable the button "Selection Sort" after final(sorted)
-  document.getElementById("bubblesort-Button2").disabled = false;
-  document.getElementById("bubblesort-Button2").style.backgroundColor = "#6f459e";
+      for (var i = bars.length; i > 1; i -= 1) {
+          for (var j=0; j<i-1; j+=1) {
+              // check if pause button is pressed:
+              console.log("pause", pause)
+              while (pause) {
+              await new Promise((resolve) =>
+                  setTimeout(() => {
+                  resolve();
+                  }, 100)
+              );
+              if (!pause) {
+                  break;
+              }
+              }
+              bars[j].style.backgroundColor = compared_bar_color;
+              bars[j+1].style.backgroundColor = compared_bar_color;
+              // To pause the execution of code for <delay> milliseconds
+              await new Promise((resolve) =>
+                  setTimeout(() => {
+                  resolve();
+                  }, delay)
+              );        
+              // To store the integer value of jth bar to var1 
+              var val1 = parseInt(bars[j].childNodes[0].innerHTML);
+              // To store the integer value of (j+1)th bar to var2 
+              var val2 = parseInt(bars[j+1].childNodes[0].innerHTML);   
+              if (val1>val2) {
+                  // smooth transition
+                  bars[j+1].style.transform = `translateX(${j * (width+2)}px)`;
+                  bars[j].style.transform =  `translateX(${(j+1) * (width+2)}px)`;
+                  // // To pause the execution of code for <delay> milliseconds
+                  await new Promise((resolve) =>
+                      setTimeout(() => {
+                      resolve();
+                      }, delay)
+                  );             
+                  // // switch columns back without transition and change values
+                  bars[j+1].className = "bubblesort-bar-no-transition";
+                  bars[j].className = "bubblesort-bar-no-transition";
+                  bars[j+1].style.transform = `translateX(${(j+1) * (width+2)}px)`;
+                  bars[j].style.transform =  `translateX(${j * (width+2)}px)`;   
+                   
+                  var temp1 = bars[j+1].style.height;
+                  var temp2 = bars[j+1].childNodes[0].innerText;
+                  bars[j+1].style.height = bars[j].style.height;
+                  bars[j].style.height = temp1;
+                  bars[j+1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
+                  bars[j].childNodes[0].innerText = temp2;    
+                  // change class back
+                  bars[j+1].className = "bubblesort-bar";
+                  bars[j].className = "bubblesort-bar";
+              }
+              bars[j].style.backgroundColor = default_bar_color;
+          }
+          bars[i-1].style.backgroundColor = finished_bar_color;
+      }
+    bars[0].style.backgroundColor = finished_bar_color;
+  //   // Provide lightgreen color to the ith bar
+  //   bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
+    
+    // To enable the button "Generate New Array" after final(sorted)
+    let btn1 = document.getElementById("bubblesort-Button1")
+    btn1.disabled = false;
+    btn1.classList.remove("disabled-btn");
+        
+    // to disable the change_colors_to_colorblind button
+    let btn3 = document.getElementById("bubblesort-Button3")
+    btn3.disabled = false;
+    btn3.classList.remove("disabled-btn");
+  
+    setSortingIsActive(false)
 
-  // to disable the change_colors_to_colorblind button
-  document.getElementById("bubblesort-Button3").disabled = false;
-  document.getElementById("bubblesort-Button3").style.backgroundColor = "#6f459e";      
-  setSortingIsActive(false)
+  }
 }
 
   
@@ -252,16 +262,18 @@ async function BubbleSort(delay = delayy) {
 function disable()
 {
   // To disable the button "Generate New Array"
-  document.getElementById("bubblesort-Button1").disabled = true;
-  document.getElementById("bubblesort-Button1").style.backgroundColor = "#d8b6ff";
-  
-  // To disable the button "Selection Sort"
-  document.getElementById("bubblesort-Button2").disabled = true;
-  document.getElementById("bubblesort-Button2").style.backgroundColor = "#d8b6ff";  
+  let btn1 = document.getElementById("bubblesort-Button1")
+  btn1.disabled = true;
+  btn1.classList.add("disabled-btn");
+  // btn1.style.backgroundColor = "#d8b6ff";
+  // btn1.style.cursor = null;
 
   // to disable the change_colors_to_colorblind button
-  document.getElementById("bubblesort-Button3").disabled = true;
-  document.getElementById("bubblesort-Button3").style.backgroundColor = "#d8b6ff";    
+  let btn3 = document.getElementById("bubblesort-Button3")
+  btn3.disabled = true;
+  btn3.classList.add("disabled-btn");
+  // btn3.style.backgroundColor = "#d8b6ff";  
+  // btn3.style.cursor = "none";  
 }
 
 
@@ -270,28 +282,21 @@ function disable()
 //                           </div>
 
     return (
-        <div>
-    <section className="bubblesort-head">Bubble Sort Visualizer</section>
-   <section className="bubblesort-data-container"></section> 
-      <SequenceInputButton processInputSequence={processInputSequence}/>
-      <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div onClick={() => {pause_button()}}>
-                            <PauseButton id="bubblesort" />
-                          </div>}/>
-   <button  className="btn1" onClick={() => generatebars()} id="bubblesort-Button1" >
-     Generate New Array</button>   
-     
-   <button className="btn2" 
-           onClick={() => {BubbleSort();disable()}} id="bubblesort-Button2" >
-     Bubble Sort</button>
-
-     <button className="btn3" 
-           onClick={() => {change_colors_to_colorblind()}} id="bubblesort-Button3" >
-     colorblind palette</button>     
-
-     {/* <button className="btn4" 
-           onClick={() => {pause_button()}} id="Button4" >
-     pause</button>      */}
+      <>
+        <section className="bubblesort-head">Bubble Sort Visualizer</section>
+          <section className="bubblesort-data-container"></section> 
+        <div className="sorting-toolbar">
+          <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive}/>
+          <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}} onClick={() => {BubbleSort();disable()}}>
+                                <PauseButton id="bubblesort" />
+                              </div>}/>
+          <button  className="btn1" onClick={() => generatebars()} id="bubblesort-Button1" >
+            Generate New Array</button>   
+          <button className="btn3" 
+                onClick={() => {change_colors_to_colorblind()}} id="bubblesort-Button3" >
+          colorblind palette</button>     
         </div>
+      </>
     );
   }
   

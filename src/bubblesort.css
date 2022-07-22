@@ -50,67 +50,11 @@ body {
     width: 100%;
     text-align: center;
 }
-.btn1 {
-    padding: 12px;
-    font-weight: bolder;
-    background-color: #6f459e;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    border: white;
-    margin-left: 37vw;
-    margin-top: 4vw;
-    margin-right: 1vw;
-}
-.btn2 {
-    padding: 12px;
-    font-weight: bolder;
-    background-color: #6f459e;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    border: white;
-}
 
-.btn3 {
-    padding: 12px;
-    font-weight: bolder;
-    background-color: #6f459e;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
-    border: white;
-    margin-top: 4vw;
-
-}
-
-.pause-button {
-    box-sizing: border-box;
-    height: 74px;
-    
-    border-color: transparent transparent transparent #6f459e;
-    transition: 100ms all ease;
-    will-change: border-width;
-    cursor: pointer;
-  
-    border-style: solid;
-    border-width: 37px 0 37px 60px;
-    background: transparent;
-    margin-left:25px;
-}
-.pause-button.paused {
-        border-style: double;
-        border-width: 0px 0 0px 60px;
-    
-  }
-.pause-button:hover {
-    border-color: transparent transparent transparent #6f459e;
-
-}
 .play-widget-grid {
     display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-
+padding: 25px;
 }

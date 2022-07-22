@@ -4,8 +4,10 @@ import * as React from 'react';
 
 const PauseButton = (props) => {
     function toggle() {
-        var element = document.getElementById(props.id);
-        element.classList.toggle("paused");
+      if (props.sortingIsActive || !props.pause) {
+          var element = document.getElementById(props.id);
+          element.classList.toggle("paused");
+        }
       }
       
     return (
