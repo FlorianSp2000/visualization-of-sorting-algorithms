@@ -21,7 +21,7 @@ function change_colors_to_colorblind() {
     finished_bar_color = "rgb(0,158,115)";
     next_bar_color = "rgb(0,114,178)";
     min_bar_color = "rgb(213,94,0)";
-    let bars = document.querySelectorAll(".bar")
+    let bars = document.querySelectorAll(".selectionsort-bar")
     for (let i=0; i<bars.length; i+=1) {
       bars[i].style.backgroundColor = default_bar_color;
     }
@@ -33,7 +33,7 @@ function change_colors_to_colorblind() {
     finished_bar_color = "rgb(49, 226, 13)";
     next_bar_color = "rgb(10, 26, 177)";
     min_bar_color = "rgb(189, 22, 22)";
-    let bars = document.querySelectorAll(".bar")
+    let bars = document.querySelectorAll(".selectionsort-bar")
     for (let i=0; i<bars.length; i+=1) {
       bars[i].style.backgroundColor = default_bar_color;
     }
@@ -49,7 +49,7 @@ function change_colors_to_colorblind() {
 
 // // function to delete bars
 function deletebars() {
-  document.querySelectorAll('.bar').forEach(e => e.remove());
+  document.querySelectorAll('.selectionsort-bar').forEach(e => e.remove());
 }
 
 
@@ -63,7 +63,7 @@ function processInputSequence(sequence) {
 
 // // function to generate bars
 function generatebars(num = 20, sequence) {
-  const container = document.querySelector(".data-container");
+  const container = document.querySelector(".selectionsort-data-container");
   // delete old bars
   deletebars()
 
@@ -99,7 +99,7 @@ function generatebars(num = 20, sequence) {
     bar.style.backgroundColor = default_bar_color;
   
     // To add class "bar" to "div"
-    bar.classList.add("bar");
+    bar.classList.add("selectionsort-bar");
   
     // Provide height to the bar
     bar.style.height = `${parseInt(value) * 300 / max_value}px`;
@@ -114,7 +114,7 @@ function generatebars(num = 20, sequence) {
     const barLabel = document.createElement("label");
   
     // To add class "bar_id" to "label"
-    barLabel.classList.add("bar_id");
+    barLabel.classList.add("selectionsort-bar_id");
   
     // Assign value to "label"
     barLabel.innerHTML = value;
@@ -170,7 +170,7 @@ function Selectionsort(props) {
 async function SelectionSort(delay = delayy) {
 
   setSortingIsActive(true)
-  let bars = document.querySelectorAll(".bar");
+  let bars = document.querySelectorAll(".selectionsort-bar");
   // Assign 0 to min_idx
    var min_idx = 0;
    for (var i = 0; i < bars.length-1; i += 1) {
@@ -342,11 +342,11 @@ function disable()
 
     return (
         <div>
-    <section className="head">Selection Sort Visualizer</section>
-   <section className="data-container"></section> 
+    <section className="selectionsort-head">Selection Sort Visualizer</section>
+   <section className="selectionsort-data-container"></section> 
       <SequenceInputButton processInputSequence={processInputSequence}/>
       <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div onClick={() => {pause_button()}}>
-                            <PauseButton />
+                            <PauseButton id="selectionsort" />
                           </div>}/>
    <button  className="btn1" onClick={() => generatebars()} id="selectionsort-Button1" >
      Generate New Array</button>   

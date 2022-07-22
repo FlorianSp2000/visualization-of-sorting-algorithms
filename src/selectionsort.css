@@ -7,7 +7,7 @@ body {
     font-family: Verdana, sans-serif;
 }
   
-.head {
+.selectionsort-head {
     margin-top: 20px;
     margin-right: 20vw;
     margin-left: 20vw;
@@ -19,14 +19,14 @@ body {
     font-weight: bolder;
 }
   
-.data-container {
+.selectionsort-data-container {
     width: 600px;
     height: 384px;
     position: relative;
     margin: 0 auto;
 }
   
-.bar {
+.selectionsort-bar {
     /* width: 28px; */
     position: absolute;
     left: 0;
