@@ -1,0 +1,52 @@
+
+.mergesort-head {
+    margin-top: 20px;
+    margin-right: 20vw;
+    margin-left: 20vw;
+    text-align: center;
+    font-size: 30px;
+    background-color: #6f459e;
+    color: white;
+    border-radius: 19px;
+    font-weight: bolder;
+}
+  
+.mergesort-data-container {
+    width: 600px;
+    height: 384px;
+    position: relative;
+    margin: 0 auto;
+}
+  
+.mergesort-bar {
+    /* width: 28px; */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0, 183, 255);
+    transition: 0.2s all ease;
+}
+
+.mergesort-bar-no-transition {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(0, 183, 255);    
+}
+  
+.mergesort-bar_id {
+    position: relative;
+    /* top: -25%; */
+    float: top;
+    top: -35px;
+    width: 100%;
+    text-align: center;
+}
+
+.play-widget-grid {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 25px;
+}
