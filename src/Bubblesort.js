@@ -9,9 +9,9 @@ import PlayWidget from './PlayWidget';
 var colorblind_active = false;
 var default_bar_color = "rgb(0, 183, 255)";
 var finished_bar_color = "rgb(49, 226, 13)";
-// var next_bar_color = "rgb(10, 26, 177)";
 var compared_bar_color = "rgb(189, 22, 22)";
 var pause = false;
+var global_width = 600;
 
 
 // // function to change colors to colorblind:
@@ -19,7 +19,6 @@ function change_colors_to_colorblind() {
   if (!colorblind_active) {
     default_bar_color = "rgb(240,228,66)";
     finished_bar_color = "rgb(0,158,115)";
-    // next_bar_color = "rgb(0,114,178)";
     compared_bar_color = "rgb(213,94,0)";
     let bars = document.querySelectorAll(".bubblesort-bar")
     for (let i=0; i<bars.length; i+=1) {
@@ -31,7 +30,6 @@ function change_colors_to_colorblind() {
   else {
     default_bar_color = "rgb(0, 183, 255)";
     finished_bar_color = "rgb(49, 226, 13)";
-    // next_bar_color = "rgb(10, 26, 177)";
     compared_bar_color = "rgb(189, 22, 22)";
     let bars = document.querySelectorAll(".bubblesort-bar")
     for (let i=0; i<bars.length; i+=1) {
@@ -84,7 +82,7 @@ function generatebars(num = 20, sequence) {
   }
 
   // calculate width, so that the algorithm is approximately 600 px wide
-  const width = 600 / sequence.length;
+  const width = global_width / sequence.length;
       
   // create bars
   for (let i = 0; i < sequence.length; i += 1) {
@@ -172,45 +170,64 @@ async function BubbleSort(delay = delayy) {
   setSortingIsActive(true)
   let bars = document.querySelectorAll(".bubblesort-bar");
 
-   for (var i = bars.length; i > 1; i -= 1) {
-    for (var j=0; j<i-1; j+=1) {
-        // check if pause button is pressed:
-        console.log("pause", pause)
-        while (pause) {
-        await new Promise((resolve) =>
-            setTimeout(() => {
-            resolve();
-            }, 100)
-        );
-        if (!pause) {
-            break;
+    const width = global_width/ bars.length;
+    console.log("width ", width);
+
+    for (var i = bars.length; i > 1; i -= 1) {
+        for (var j=0; j<i-1; j+=1) {
+            // check if pause button is pressed:
+            console.log("pause", pause)
+            while (pause) {
+            await new Promise((resolve) =>
+                setTimeout(() => {
+                resolve();
+                }, 100)
+            );
+            if (!pause) {
+                break;
+            }
+            }
+            bars[j].style.backgroundColor = compared_bar_color;
+            bars[j+1].style.backgroundColor = compared_bar_color;
+            // To pause the execution of code for <delay> milliseconds
+            await new Promise((resolve) =>
+                setTimeout(() => {
+                resolve();
+                }, delay)
+            );        
+            // To store the integer value of jth bar to var1 
+            var val1 = parseInt(bars[j].childNodes[0].innerHTML);
+            // To store the integer value of (j+1)th bar to var2 
+            var val2 = parseInt(bars[j+1].childNodes[0].innerHTML);   
+            if (val1>val2) {
+                bars[j+1].style.transform = `translateX(${j * (width+2)}px)`;
+                bars[j].style.transform =  `translateX(${(j+1) * (width+2)}px)`;
+                // // To pause the execution of code for <delay> milliseconds
+                await new Promise((resolve) =>
+                    setTimeout(() => {
+                    resolve();
+                    }, delay)
+                );             
+                // // switch columns
+                bars[j+1].className = "bubblesort-bar-no-transition";
+                bars[j].className = "bubblesort-bar-no-transition";
+                bars[j+1].style.transform = `translateX(${(j+1) * (width+2)}px)`;
+                bars[j].style.transform =  `translateX(${j * (width+2)}px)`;   
+                 
+                var temp1 = bars[j+1].style.height;
+                var temp2 = bars[j+1].childNodes[0].innerText;
+                bars[j+1].style.height = bars[j].style.height;
+                bars[j].style.height = temp1;
+                bars[j+1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
+                bars[j].childNodes[0].innerText = temp2;    
+                // change class back
+                bars[j+1].className = "bubblesort-bar";
+                bars[j].className = "bubblesort-bar";
+            }
+            bars[j].style.backgroundColor = default_bar_color;
         }
-        }
-        bars[j].style.backgroundColor = compared_bar_color;
-        bars[j+1].style.backgroundColor = compared_bar_color;
-        // To pause the execution of code for <delay> milliseconds
-        await new Promise((resolve) =>
-            setTimeout(() => {
-            resolve();
-            }, delay)
-        );        
-        // To store the integer value of jth bar to var1 
-        var val1 = parseInt(bars[j].childNodes[0].innerHTML);
-        // To store the integer value of (j+1)th bar to var2 
-        var val2 = parseInt(bars[j+1].childNodes[0].innerHTML);   
-        if (val1>val2) {
-            // switch columns
-            var temp1 = bars[j+1].style.height;
-            var temp2 = bars[j+1].childNodes[0].innerText;
-            bars[j+1].style.height = bars[j].style.height;
-            bars[j].style.height = temp1;
-            bars[j+1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
-            bars[j].childNodes[0].innerText = temp2;          
-        }
-        bars[j].style.backgroundColor = default_bar_color;
+        bars[i-1].style.backgroundColor = finished_bar_color;
     }
-    bars[i-1].style.backgroundColor = finished_bar_color;
-  }
   bars[0].style.backgroundColor = finished_bar_color;
 //   // Provide lightgreen color to the ith bar
 //   bars[bars.length-1].style.backgroundColor = finished_bar_color;//" rgb(49, 226, 13)";  
