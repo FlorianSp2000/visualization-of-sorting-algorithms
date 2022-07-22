@@ -189,6 +189,8 @@ async function SelectionSort(delay = delayy) {
 
     // Assign i to min_idx
     min_idx = i;
+
+    var width = global_width / bars.length;
   
     bars[i].style.backgroundColor = next_bar_color;//"darkblue";
     for (var j = i + 1; j < bars.length; j += 1) {
@@ -248,6 +250,22 @@ async function SelectionSort(delay = delayy) {
     // first swap backwards
     for (var j = min_idx; j > i; j -= 1) {
   
+      // smooth transition
+      bars[j].style.transform =  `translateX(${(j-1) * (width+2)}px)`;
+      bars[j-1].style.transform = `translateX(${j * (width+2)}px)`;      
+      // // To pause the execution of code for <delay> milliseconds
+      await new Promise((resolve) =>
+          setTimeout(() => {
+          resolve();
+          }, 50)
+      );
+      // // reverse smooth transition invisibly
+      bars[j].className = "selectionsort-bar-no-transition";
+      bars[j-1].className = "selectionsort-bar-no-transition";
+      bars[j].style.transform = `translateX(${j * (width+2)}px)`;
+      bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;   
+
+      // now change columns
       var temp1 = bars[j-1].style.height;
       var temp2 = bars[j-1].childNodes[0].innerText;
       var temp3 = bars[j-1].style.backgroundColor;
@@ -256,20 +274,34 @@ async function SelectionSort(delay = delayy) {
       bars[j-1].childNodes[0].innerText = bars[j].childNodes[0].innerText;
       bars[j].childNodes[0].innerText = temp2;        
       bars[j-1].style.backgroundColor = bars[j].style.backgroundColor;
-      bars[j].style.backgroundColor = temp3;
+      bars[j].style.backgroundColor = temp3;      
 
-      // To pause the execution of code for 300 milliseconds
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, 25)
-      );
+      // change class back
+      bars[j-1].className = "selectionsort-bar";
+      bars[j].className = "selectionsort-bar";
+
   
     }
 
     // then swap forwards
     for (var j = i+2; j < min_idx+1; j += 1) {
+
+      // smooth transition
+      bars[j].style.transform =  `translateX(${(j-1) * (width+2)}px)`;
+      bars[j-1].style.transform = `translateX(${j * (width+2)}px)`;      
+      // // To pause the execution of code for <delay> milliseconds
+      await new Promise((resolve) =>
+          setTimeout(() => {
+          resolve();
+          }, 50)
+      );
+      // // reverse smooth transition invisibly
+      bars[j].className = "selectionsort-bar-no-transition";
+      bars[j-1].className = "selectionsort-bar-no-transition";
+      bars[j].style.transform = `translateX(${j * (width+2)}px)`;
+      bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;       
   
+      // now change columns
       var temp1 = bars[j-1].style.height;
       var temp2 = bars[j-1].childNodes[0].innerText;
       var temp3 = bars[j-1].style.backgroundColor;
@@ -279,12 +311,10 @@ async function SelectionSort(delay = delayy) {
       bars[j].childNodes[0].innerText = temp2;   
       bars[j-1].style.backgroundColor = bars[j].style.backgroundColor;
       bars[j].style.backgroundColor = temp3;           
-      // To pause the execution of code for 300 milliseconds
-      await new Promise((resolve) =>
-        setTimeout(() => {
-          resolve();
-        }, 25)
-      );
+
+      // change class back
+      bars[j-1].className = "selectionsort-bar";
+      bars[j].className = "selectionsort-bar";      
   
     }    
 
