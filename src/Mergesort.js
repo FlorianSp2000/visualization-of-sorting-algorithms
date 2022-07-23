@@ -126,8 +126,6 @@ function generatebars(num = 20, sequence, container_num=1, delete_old=true, x_sh
     else {
         width = given_width;
     }
-    console.log("given_width ", given_width);
-    console.log("width ", width);
 
         
     // create bars
@@ -220,7 +218,6 @@ async function MergeSort(delay = delayy) {
 
   var first_container = document.getElementById('mergesort-data-container-1');
   var second_container = document.getElementById('mergesort-data-container-2');
-  console.log("first container height ", first_container.offsetHeight);
   second_container.style.height = `${first_container.offsetHeight}px`;// first_container.offsetHeight;
 
   if (sortingIsActive) {
@@ -245,11 +242,11 @@ async function MergeSort(delay = delayy) {
 
     
     async function mergesort_rek(left, right, bars_shift) {
-        for (let i=0; i<initial_bars.length; i+=1) {
-          if (i>right) {
-            initial_bars[i].style.backgroundColor = default_bar_color;
-          }            
-        }
+        // for (let i=0; i<initial_bars.length; i+=1) {
+        //   if (i>right) {
+        //     initial_bars[i].style.backgroundColor = default_bar_color;
+        //   }            
+        // }
         let bars = document.querySelectorAll(".mergesort-bar");     
         const width = global_width/ bars.length;           
         if (right<=left) {
@@ -278,21 +275,37 @@ async function MergeSort(delay = delayy) {
                 resolve();
                 }, delay*5)
             );          
-              
+            // shift bars
             for (let i=mid; i<bars.length; i+=1) {
                 bars_shift[i] += 1;
                 bars[i].style.transform = `translateX(${(i+bars_shift[i]/2) * (width+2)}px)`;             
             }
+            // shift hr's:
+            var hrs = document.querySelectorAll('.mergesort-hr');
+            for (let i=0; i<hrs.length; i+=1) {
+              // console.log("hr left", hrs[i].style.left, parseInt(hrs[i].style.left));
+              if (parseInt(hrs[i].id) >= mid) {
+                hrs[i].style.left = `${parseInt(hrs[i].style.left)+(width+2)/2}px`;
+              }
+            }
 
-            console.log("left seq ", left_seq);            
-            console.log("right_seq ", right_seq);
 
-            // for (let i=0; i<initial_bars.length; i+=1) {
-            //   if (i<left || i>right) {
-            //     initial_bars[i].style.backgroundColor = default_bar_color;
-            //   }
-              
-            // }
+            // add hr 
+            const hr = document.createElement("hr");
+            hr.classList.add("mergesort-hr");
+            hr.id = mid;
+            hr.style.left = `${(mid+bars_shift[mid]/2) * (width+2) - (width+2)/4}px`;//`${(mid+1/4) * (width+2)}px`;
+            hr.style.backgroundColor = hr_color;
+            const container = document.querySelector(".mergesort-data-container");
+            hr.style.height = `${container.offsetHeight}px`;
+            container.appendChild(hr);
+
+            for (let i=0; i<initial_bars.length; i+=1) {
+              if (i>=mid) {
+                initial_bars[i].style.backgroundColor = default_bar_color;
+              }            
+            }
+
             await new Promise((resolve) =>
                 setTimeout(() => {
                 resolve();
@@ -315,7 +328,6 @@ async function MergeSort(delay = delayy) {
 
     //async function merge(left_side_left, left_side_right, right_side_left, right_side_right) {
     async function merge(left_seq_left, left_seq_right, right_seq_left, right_seq_right, bars_shift, width) {
-      console.log("merge ", left_seq_left, left_seq_right, right_seq_left, right_seq_right);
       // console.log("parent test ", initial_bars[0].parentElement?.id=='mergesort-data-container-1');  
       var top_bars = document.querySelectorAll(".mergesort-bar");   
       var max_value = 0;
@@ -329,6 +341,20 @@ async function MergeSort(delay = delayy) {
       var i=left_seq_left;
       var j=right_seq_left;
       var new_idx=0;
+      // change color on current hr
+      var hrs = document.querySelectorAll(".mergesort-hr");
+      for (let i=0; i<hrs.length; i+=1) {
+        if (parseInt(hrs[i].id)>left_seq_left && parseInt(hrs[i].id)<=right_seq_right) {
+          hrs[i].style.backgroundColor = right_split_color;
+          hrs[i].style.width = "4px";
+        }
+      }
+      await new Promise((resolve) =>
+        setTimeout(() => {
+        resolve();
+        }, delay*2)
+      );   
+
       while(i<=left_seq_right && j<=right_seq_right) {
         if (parseInt(top_bars[i].childNodes[0].innerHTML)<=parseInt(top_bars[j].childNodes[0].innerHTML)) {           
           new_seq[new_idx] = parseInt(top_bars[i].childNodes[0].innerHTML);
@@ -391,7 +417,7 @@ async function MergeSort(delay = delayy) {
         j+=1;
         new_idx+=1;
       }
-      console.log("new sequence ", new_seq);
+      
       // generate new seq below:
       // generatebars(0, new_seq, 2, false, (bars_shift[left_seq_left] + bars_shift[right_seq_left]) / 2, width, max_value);  
       var bottom_bars = document.querySelectorAll(".mergesort-bar-2");           
@@ -403,7 +429,15 @@ async function MergeSort(delay = delayy) {
         resolve();
         }, delay*5)
       );
-      console.log("BOTTOM BARS: ", bottom_bars);
+      
+
+      // delete hr:
+      var hrs = document.querySelectorAll('.mergesort-hr');
+      for (let i=0; i<hrs.length; i+=1) {
+        if (parseInt(hrs[i].id)>left_seq_left && parseInt(hrs[i].id)<=right_seq_right) {
+          hrs[i].remove();
+        }
+      }
 
       // shift new seq to top:
       for (let i=left_seq_left; i<=right_seq_right; i+=1) {
@@ -448,7 +482,6 @@ async function MergeSort(delay = delayy) {
 
     var width = global_width / initial_bars.length; 
     initial_bars = document.querySelectorAll(".mergesort-bar");
-    console.log("initial bars reloaded ", initial_bars);
     for (let i=0; i<initial_bars.length; i+=1) {
       initial_bars[i].style.transform = `translateX(${i * (width+2)}px)`;   
     }

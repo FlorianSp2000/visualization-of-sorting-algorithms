@@ -43,6 +43,13 @@
 
 }
 
+.mergesort-hr {
+    position: absolute;
+    width: 2px;
+    transition: 0.2s all ease;
+    /* opacity: 0.5; */
+}
+
 .mergesort-bar-no-transition {
     position: absolute;
     left: 0;
