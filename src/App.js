@@ -5,6 +5,7 @@ import Intro from './Intro';
 import GeneralStats from './GeneralStats';
 import Bubblesort from './Bubblesort';
 import Quicksort from './Quicksort';
+import Mergesort from './Mergesort';
 
 
 function App() {
@@ -32,6 +33,11 @@ function App() {
 
           </Quicksort>
           <br></br>
+
+          <Mergesort>
+
+          </Mergesort>
+          <br></br>          
 
 
           <GeneralStats/>
