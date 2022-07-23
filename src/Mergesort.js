@@ -277,6 +277,19 @@ async function MergeSort(delay = delayy) {
             );          
             // shift bars
             for (let i=mid; i<bars.length; i+=1) {
+
+                // if pause, wait
+                while (pause) {
+                  await new Promise((resolve) =>
+                    setTimeout(() => {
+                      resolve();
+                    }, 100)
+                  );
+                  if (!pause) {
+                    break;
+                  }
+                }                 
+
                 bars_shift[i] += 1;
                 bars[i].style.transform = `translateX(${(i+bars_shift[i]/2) * (width+2)}px)`;             
             }
@@ -356,6 +369,19 @@ async function MergeSort(delay = delayy) {
       );   
 
       while(i<=left_seq_right && j<=right_seq_right) {
+
+        // if pause, wait
+        while (pause) {
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, 100)
+          );
+          if (!pause) {
+            break;
+          }
+        }      
+        
         if (parseInt(top_bars[i].childNodes[0].innerHTML)<=parseInt(top_bars[j].childNodes[0].innerHTML)) {           
           new_seq[new_idx] = parseInt(top_bars[i].childNodes[0].innerHTML);
 
@@ -388,6 +414,19 @@ async function MergeSort(delay = delayy) {
         }
       }
       while (i<=left_seq_right) {
+
+        // if pause, wait
+        while (pause) {
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, 100)
+          );
+          if (!pause) {
+            break;
+          }
+        }      
+        
         new_seq[new_idx] = parseInt(top_bars[i].childNodes[0].innerHTML);
 
         generatebars(0, [new_seq[new_idx]], 2, false, (bars_shift[left_seq_left] + 1/2) + new_idx, width, max_value, finished_bar_color);
@@ -403,6 +442,19 @@ async function MergeSort(delay = delayy) {
         new_idx+=1;
       }
       while (j<=right_seq_right) {
+
+        // if pause, wait
+        while (pause) {
+          await new Promise((resolve) =>
+            setTimeout(() => {
+              resolve();
+            }, 100)
+          );
+          if (!pause) {
+            break;
+          }
+        }      
+
         new_seq[new_idx] = parseInt(top_bars[j].childNodes[0].innerHTML);
 
         generatebars(0, [new_seq[new_idx]], 2, false, (bars_shift[left_seq_left] + 1/2) + new_idx, width, max_value, finished_bar_color);
@@ -439,6 +491,18 @@ async function MergeSort(delay = delayy) {
         }
       }
 
+      // if pause, wait
+      while (pause) {
+        await new Promise((resolve) =>
+          setTimeout(() => {
+            resolve();
+          }, 100)
+        );
+        if (!pause) {
+          break;
+        }
+      }      
+
       // shift new seq to top:
       for (let i=left_seq_left; i<=right_seq_right; i+=1) {
         top_bars[i].style.height = bottom_bars[i-left_seq_left].style.height;
@@ -474,6 +538,17 @@ async function MergeSort(delay = delayy) {
         bottom_bars[i].remove();        
       }
 
+      // if pause, wait
+      while (pause) {
+        await new Promise((resolve) =>
+          setTimeout(() => {
+            resolve();
+          }, 100)
+        );
+        if (!pause) {
+          break;
+        }
+      }      
 
       return new_seq;
     }
