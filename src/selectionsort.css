@@ -140,3 +140,8 @@ align-items: center;
     margin-bottom: 8px;
     color: #24a0ed
 }
+
+
+.small-multiple-grid {
+    display: flex;
+}
