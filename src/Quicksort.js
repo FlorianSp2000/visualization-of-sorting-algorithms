@@ -237,6 +237,14 @@ async function QuickSort(delay = delayy) {
           hr.style.width = `${global_width + bars.length*2 - 3}px`;
           hr.style.bottom = `${pivot * 300 / global_max_value - 15}px`;
           hr.style.backgroundColor = pivot_bar_color;
+          // create label
+          const hr_label = document.createElement("label");
+          hr_label.classList.add("quicksort-hr_label");
+          hr_label.innerHTML = "pivot value";
+          hr_label.style.fontSize = `15px`;     
+          // hr_label.style.left = `${-global_width/2-50}px`;
+          hr.appendChild(hr_label);
+    
           const container = document.querySelector(".quicksort-data-container");
           container.appendChild(hr);
         }

@@ -51,3 +51,15 @@
     width: 100%;
     text-align: center;
 }
+
+.quicksort-hr_label {
+    position: relative;
+    /* top: -25%; */
+    float: top;
+    top: -25px;
+    margin-left: -115%;
+    /* left: -100px; */
+    /* width: 100%; */
+    /* text-align: left; */
+    color: black;
+}
