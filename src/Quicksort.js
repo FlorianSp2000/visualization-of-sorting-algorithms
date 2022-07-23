@@ -234,7 +234,7 @@ async function QuickSort(delay = delayy) {
         if (hr_elems.length==0) {
           const hr = document.createElement("hr");
           hr.classList.add("quicksort-hr");
-          hr.style.width = `${global_width + bars.length*2 - 2}px`;
+          hr.style.width = `${global_width + bars.length*2 - 3}px`;
           hr.style.bottom = `${pivot * 300 / global_max_value - 15}px`;
           hr.style.backgroundColor = pivot_bar_color;
           const container = document.querySelector(".quicksort-data-container");
