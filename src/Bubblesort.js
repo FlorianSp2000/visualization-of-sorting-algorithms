@@ -60,7 +60,6 @@ function togglePauseButton() {
 function processInputSequence(sequence) {
   // deletebars();
   generatebars(20, sequence)
-  togglePauseButton()
 }
 
 
@@ -180,12 +179,10 @@ async function BubbleSort(delay = delayy) {
     let bars = document.querySelectorAll(".bubblesort-bar");
   
       const width = global_width/ bars.length;
-      console.log("width ", width);
   
       for (var i = bars.length; i > 1; i -= 1) {
           for (var j=0; j<i-1; j+=1) {
               // check if pause button is pressed:
-              console.log("pause", pause)
               while (pause) {
               await new Promise((resolve) =>
                   setTimeout(() => {
@@ -253,6 +250,8 @@ async function BubbleSort(delay = delayy) {
     btn3.classList.remove("disabled-btn");
   
     setSortingIsActive(false)
+    pause_button();
+    togglePauseButton();
 
   }
 }
@@ -280,9 +279,9 @@ function disable()
         <section className="bubblesort-head">Bubble Sort Visualizer</section>
           <section className="bubblesort-data-container"></section> 
         <div className="sorting-toolbar">
-          <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive}/>
-          <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}} onClick={() => {BubbleSort();disable()}}>
-                                <PauseButton id="bubblesort" />
+          <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive} sortingIsActive={sortingIsActive} togglePauseButton={togglePauseButton}/>
+          <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}}>
+                                <PauseButton id="bubblesort" sortingIsActive={sortingIsActive} pause={pause} Sort={BubbleSort} disable={disable}/>
                               </div>}/>
           <button  className="btn1" onClick={() => generatebars()} id="bubblesort-Button1" >
             Generate New Sequence</button>   

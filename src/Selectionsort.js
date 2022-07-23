@@ -60,7 +60,6 @@ function togglePauseButton() {
 function processInputSequence(sequence) {
 
   generatebars(20, sequence)
-  togglePauseButton()
 }
 
 
@@ -182,7 +181,6 @@ async function SelectionSort(delay = delayy) {
      var min_idx = 0;
      for (var i = 0; i < bars.length-1; i += 1) {
       // check if pause button is pressed:
-      console.log("pause", pause)
       while (pause) {
         await new Promise((resolve) =>
           setTimeout(() => {
@@ -206,7 +204,6 @@ async function SelectionSort(delay = delayy) {
         bars[j].style.backgroundColor = min_bar_color;
           
         // check if pause button is pressed:
-        console.log("pause2", pause)
         while (pause) {
           await new Promise((resolve) =>
             setTimeout(() => {
@@ -353,6 +350,9 @@ async function SelectionSort(delay = delayy) {
     btn3.classList.remove("disabled-btn");
 
     setSortingIsActive(false)
+    pause_button();
+    togglePauseButton();
+
   }
 }
 
@@ -376,9 +376,9 @@ function disable()
             <section className="selectionsort-data-container"></section> 
 
         <div className="sorting-toolbar">
-            <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive}/>
-            <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}} onClick={() => {SelectionSort();disable();}}>
-                                  <PauseButton id="selectionsort" sortingIsActive={sortingIsActive} pause={pause}/>
+            <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive} sortingIsActive={sortingIsActive} togglePauseButton={togglePauseButton}/>
+            <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}}>
+                                  <PauseButton id="selectionsort" sortingIsActive={sortingIsActive} pause={pause} Sort={SelectionSort} disable={disable}/>
                                 </div>}/>
         <button  className="btn1" onClick={() => generatebars()} id="selectionsort-Button1" >
         Generate New Sequence</button>   

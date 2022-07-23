@@ -80,7 +80,6 @@ function togglePauseButton() {
 function processInputSequence(sequence) {
   
   generatebars(20, sequence);
-  togglePauseButton();
 }
 
 
@@ -182,7 +181,7 @@ function Quicksort(props) {
     }
   }
   function pause_button() {
-    console.log("pause button clicked", pause)
+
     if (pause==false) {
       pause=true;
     }
@@ -207,8 +206,8 @@ async function QuickSort(delay = delayy) {
     finished_bars = new Array(bars.length);
 
     async function quicksort_rek(left, right) {
-        console.log("quicksort ", left, right);
-        if (left<right) {
+
+      if (left<right) {
             var pivot_idx = await divide(left, right);
             // console.log("pivot index ", pivot_idx);
             await quicksort_rek(left, pivot_idx-1);
@@ -346,8 +345,8 @@ async function QuickSort(delay = delayy) {
                         }, 50)
                     );
                     // // reverse smooth transition invisibly
-                    bars[j].className = "selectionsort-bar-no-transition";
-                    bars[j-1].className = "selectionsort-bar-no-transition";
+                    bars[j].className = "quicksort-bar-no-transition";
+                    bars[j-1].className = "quicksort-bar-no-transition";
                     bars[j].style.transform = `translateX(${j * (width+2)}px)`;
                     bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;   
             
@@ -363,8 +362,8 @@ async function QuickSort(delay = delayy) {
                     bars[j].style.backgroundColor = temp3;      
             
                     // change class back
-                    bars[j-1].className = "selectionsort-bar";
-                    bars[j].className = "selectionsort-bar";
+                    bars[j-1].className = "quicksort-bar";
+                    bars[j].className = "quicksort-bar";
             
                 
                 }
@@ -394,8 +393,8 @@ async function QuickSort(delay = delayy) {
                         }, 50)
                     );
                     // // reverse smooth transition invisibly
-                    bars[j].className = "selectionsort-bar-no-transition";
-                    bars[j-1].className = "selectionsort-bar-no-transition";
+                    bars[j].className = "quicksort-bar-no-transition";
+                    bars[j-1].className = "quicksort-bar-no-transition";
                     bars[j].style.transform = `translateX(${j * (width+2)}px)`;
                     bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;       
                 
@@ -411,8 +410,8 @@ async function QuickSort(delay = delayy) {
                     bars[j].style.backgroundColor = temp3;           
             
                     // change class back
-                    bars[j-1].className = "selectionsort-bar";
-                    bars[j].className = "selectionsort-bar";      
+                    bars[j-1].className = "quicksort-bar";
+                    bars[j].className = "quicksort-bar";      
                 
                 }    
             
@@ -453,8 +452,8 @@ async function QuickSort(delay = delayy) {
                     }, 50)
                 );
                 // // reverse smooth transition invisibly
-                bars[j].className = "selectionsort-bar-no-transition";
-                bars[j-1].className = "selectionsort-bar-no-transition";
+                bars[j].className = "quicksort-bar-no-transition";
+                bars[j-1].className = "quicksort-bar-no-transition";
                 bars[j].style.transform = `translateX(${j * (width+2)}px)`;
                 bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;   
         
@@ -470,8 +469,8 @@ async function QuickSort(delay = delayy) {
                 bars[j].style.backgroundColor = temp3;      
         
                 // change class back
-                bars[j-1].className = "selectionsort-bar";
-                bars[j].className = "selectionsort-bar";
+                bars[j-1].className = "quicksort-bar";
+                bars[j].className = "quicksort-bar";
         
             
             }
@@ -501,8 +500,8 @@ async function QuickSort(delay = delayy) {
                     }, 50)
                 );
                 // // reverse smooth transition invisibly
-                bars[j].className = "selectionsort-bar-no-transition";
-                bars[j-1].className = "selectionsort-bar-no-transition";
+                bars[j].className = "quicksort-bar-no-transition";
+                bars[j-1].className = "quicksort-bar-no-transition";
                 bars[j].style.transform = `translateX(${j * (width+2)}px)`;
                 bars[j-1].style.transform =  `translateX(${(j-1) * (width+2)}px)`;       
             
@@ -518,8 +517,8 @@ async function QuickSort(delay = delayy) {
                 bars[j].style.backgroundColor = temp3;           
         
                 // change class back
-                bars[j-1].className = "selectionsort-bar";
-                bars[j].className = "selectionsort-bar";      
+                bars[j-1].className = "quicksort-bar";
+                bars[j].className = "quicksort-bar";      
             
             }    
                         
@@ -578,6 +577,9 @@ async function QuickSort(delay = delayy) {
     btn3.classList.remove("disabled-btn");
 
     setSortingIsActive(false)
+    pause_button();
+    togglePauseButton();
+
   }
 }
 
@@ -601,9 +603,9 @@ function disable()
           <section className="quicksort-data-container"></section> 
 
       <div className="sorting-toolbar">
-          <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive}/>
-          <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}} onClick={() => {QuickSort();disable();}}>
-                                <PauseButton id="quicksort" sortingIsActive={sortingIsActive} pause={pause}/>
+          <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive} sortingIsActive={sortingIsActive} togglePauseButton={togglePauseButton}/>
+          <PlayWidget sortingIsActive={sortingIsActive} modifyDelay={modifyDelay} playComponent={<div style={{height: '74px'}}>
+                                <PauseButton id="quicksort" sortingIsActive={sortingIsActive} pause={pause} Sort={QuickSort} disable={disable}/>
                               </div>}/>
       <button  className="btn1" onClick={() => generatebars()} id="quicksort-Button1" >
         Generate New Sequence</button>   

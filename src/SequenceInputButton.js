@@ -20,6 +20,9 @@ function SequenceInputButton(props) {
       const sendSequence = () => {
         // console.log(typeof values.sequence)
         props.processInputSequence(values.sequence.split(','))
+        if (props.sortingIsActive) {
+          props.togglePauseButton()
+        }
         props.resetSortingStatus(false)
       }
     
@@ -27,12 +30,24 @@ function SequenceInputButton(props) {
     return (
       <div style={{marginTop: "1.5vw"}}>
         <h3 className="sequence-prompt">Enter Sequence of Integers:</h3>
-        <FormControl className="btn3" sx={{ m: 1, width: '35ch' , }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password"></InputLabel>
+        <FormControl className="btn3" sx={{ m: 1, width: '35ch' , 
+          '& .Mui-focused': {
+            color: '#000',
+          },
+          '.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'transparent !important',
+          },
+          '.MuiFormControl-root': {
+            padding: '1px',
+          },
+          padding: '1px',
+      }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">E.g. 2,5,6</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             value={values.sequence}
             onChange={handleChange}
+              
             endAdornment={
               <InputAdornment position="end">
                 <SendIcon style={{cursor: "pointer"}} onClick={sendSequence}>

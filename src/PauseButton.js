@@ -11,7 +11,7 @@ const PauseButton = (props) => {
       }
       
     return (
-            <button id={props.id} className="pause-button" onClick={toggle}></button>
+            <button id={props.id} className="pause-button" onClick={() => {toggle(); props.Sort(); props.disable()}}></button>
         );
 };
 
