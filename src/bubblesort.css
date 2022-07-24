@@ -10,6 +10,7 @@
     font-size: 30px;
     border-radius: 19px;
     font-weight: bolder;
+    margin-bottom: 8px;
 }
   
 .bubblesort-data-container {
@@ -52,4 +53,13 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 25px;
+}
+
+.standard-header {
+    text-align: center;
+    font-size: 30px;
+    border-radius: 19px;
+    font-weight: bolder;
+    margin-bottom: 8px;
+
 }

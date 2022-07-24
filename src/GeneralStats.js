@@ -4,18 +4,23 @@ import SmallMultiples from './SmallMultiples';
 
 function GeneralStats(props) {
     return (
-        <div style={{width: '80%', marginTop: '30px'}}>
-            General Statistics and Comparisons between different sorting algorithms:
+        <div style={{width: '80%'}}>
+            <hr></hr>
+            <section className="standard-header">
+                General Statistics and Comparisons between different sorting algorithms:
+            </section>
 
             <br></br>
             <br></br>
             <ComplexityHeatmap />
             <div style={{marginBottom: '20px'}}>
-            Time complexity of the sorting algorithms for different cases
+            <section className="standard-header">
+                Time complexity of the sorting algorithms for different cases
+            </section>
             </div>
             
             <br></br>
-            <SmallMultiples />
+            {/* <SmallMultiples /> */}
         </div>
     );
 }
