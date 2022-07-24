@@ -11,7 +11,7 @@ function GeneralStats(props) {
             <br></br>
             <br></br>
             <ComplexityHeatmap />
-            <SmallMultiples />
+            {/* <SmallMultiples /> */}
         </div>
     );
 }

@@ -28,7 +28,6 @@ const Intro = () => {
             We can use sorting algorithms to rearrange the pixels of an image.
         </div> */}
         <br></br>
-        {/* <ImageSort /> */}
         </>
     );
 };

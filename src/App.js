@@ -8,6 +8,8 @@ import Quicksort from './Quicksort';
 import Mergesort from './Mergesort';
 import Insertionsort from './Insertionsort';
 
+import Applications from './Applications'
+
 function App() {
   return (
     <div className="App">
@@ -46,7 +48,8 @@ function App() {
           <br></br>   
 
           <GeneralStats/>
-          <br></br>          
+          <br></br>      
+          <Applications />    
       </header>
     </div>
   );
