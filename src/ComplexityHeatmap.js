@@ -10,6 +10,12 @@ class ComplexityHeatmap extends Component {
         chart: {
           id: "basic-bar"
         },
+        //   default_bar_color = "#f0e442";//"rgb(240,228,66)";
+        //   finished_bar_color = "#009e73";//"rgb(0,158,115)";
+        //   pivot_bar_color = "#0072b2";//"rgb(0,114,178)";
+        //   left_running_bar_color = "#d55e00";//"rgb(213,94,0)";
+        //   right_running_bar_color = "#cc79a7";//"rgb(204,121,167)";          
+        colors: ["#f0e442", "#009e73", "#0072b2", "#d55e00", "#cc79a7"],
         xaxis: {
           categories: ["Best Case", "Average Case", "Worst Case"]
         },
