@@ -14,7 +14,9 @@ import RandomSelectionsort from "./Charts/RandomSelectionsort";
 import AscendingInsertionsort from "./Charts/AscendingInsertionsort";
 import DescendingInsertionsort from "./Charts/DescendingInsertionsort";
 import RandomInsertionsort from "./Charts/RandomInsertionsort";
-
+import AscendingQuicksortMed3 from "./Charts/AscendingQuicksortMed3";
+import DescendingQuicksortMed3 from "./Charts/DescendingQuicksortMed3";
+import RandomQuicksortMed3 from "./Charts/RandomQuicksortMed3";
 
 
 class SmallMultiples extends Component {
@@ -52,6 +54,11 @@ class SmallMultiples extends Component {
                     <DescendingInsertionsort/>
                     <RandomInsertionsort/>
                 </div>                                                
+                <div className="small-multiple-grid">
+                    <AscendingQuicksortMed3/>                  
+                    <DescendingQuicksortMed3/>
+                    <RandomQuicksortMed3/>
+                </div>                       
 </div>
 
            
