@@ -10,7 +10,8 @@ function GeneralStats(props) {
             <br></br>
             Idea1: Run Different Algorithms on same dataset and make a race bar / line chart on their number of comparisons
             <br></br>
-            {/* <ComplexityHeatmap /> */}
+            <br></br>
+            <ComplexityHeatmap />
             <SmallMultiples />
         </div>
     );
