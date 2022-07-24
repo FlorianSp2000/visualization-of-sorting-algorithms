@@ -62,6 +62,11 @@ class RandomBubblesort extends Component {
             title: {
                 text: "Runtime (ms)"
             },
+            labels: {
+                formatter: function(val) {
+                    return val.toFixed(0);
+                }
+            },            
             min: 0,
             max: 21000,
             tickAmount: 7

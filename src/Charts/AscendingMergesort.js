@@ -62,6 +62,11 @@ class AscendingMergesort extends Component {
             title: {
                 text: "Runtime (ms)"
             },
+            labels: {
+              formatter: function(val) {
+                  return val.toFixed(0);
+              }
+            },             
             min: 0,
             max: 10,
             tickAmount: 10

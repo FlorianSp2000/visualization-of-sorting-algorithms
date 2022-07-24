@@ -61,7 +61,7 @@ class AscendingInsertionsort extends Component {
           yaxis: {
             title: {
                 text: "Runtime (ms)"
-            },
+            },          
             min: 0,
             max: 1,
             tickAmount: 10
