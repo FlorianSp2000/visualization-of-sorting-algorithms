@@ -19,7 +19,7 @@ function GeneralStats(props) {
             </div>
             
             <br></br>
-            {/* <SmallMultiples /> */}
+            <SmallMultiples />
         </div>
     );
 }
