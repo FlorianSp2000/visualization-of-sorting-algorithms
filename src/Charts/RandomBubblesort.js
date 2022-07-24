@@ -26,7 +26,7 @@ class RandomBubblesort extends Component {
         options: {
           chart: {
             height: 350,
-            type: 'line',
+            type: 'line',           
             zoom: {
               enabled: false
             },
@@ -44,6 +44,43 @@ class RandomBubblesort extends Component {
             text: 'Bubblesort on random data',
             align: 'left'
           },
+        colors: ["#0072b2"],     
+        annotations: {
+            position: "back",
+            yaxis: [
+                {
+                    y: 0,
+                    y2: 0.1,
+                    fillColor: "#f0e442"
+                },
+                {
+                    y: 0.1,
+                    y2: 2,
+                    fillColor: "#d55e00"
+                },
+                {
+                    y: 2,
+                    y2: 10,
+                    // fillColor: "#009e73"
+                    fillColor: "#ffffff"
+                },
+                {
+                    y: 10,
+                    y2: 1000,
+                    fillColor: "#009e73"
+                },                
+                {
+                    y: 1000,
+                    y2: 2000,
+                    fillColor: "#cc79a7"
+                }                                   
+            ]
+        },        
+        //   default_bar_color = "#f0e442";//"rgb(240,228,66)";
+        //   finished_bar_color = "#009e73";//"rgb(0,158,115)";
+        //   pivot_bar_color = "#0072b2";//"rgb(0,114,178)";
+        //   left_running_bar_color = "#d55e00";//"rgb(213,94,0)";
+        //   right_running_bar_color = "#cc79a7";//"rgb(204,121,167)";          
           grid: {
             row: {
               colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
@@ -54,9 +91,17 @@ class RandomBubblesort extends Component {
             title: {
                 text: "Array size"
             },
+            labels: {
+                formatter: function(val) {
+                    if (val==0) {
+                        return "0"
+                    }
+                    return (val/1000).toFixed(0) + ",000";
+                }
+              },             
             min: 0,
-            max: 140000,
-            tickAmount: 7,
+            max: 150000,
+            tickAmount: 3,
           },
           yaxis: {
             title: {
@@ -69,7 +114,7 @@ class RandomBubblesort extends Component {
             },            
             min: 0,
             max: 21000,
-            tickAmount: 7
+            tickAmount: 3
           }
 
         },
@@ -87,7 +132,8 @@ class RandomBubblesort extends Component {
               options={this.state.options}
               series={this.state.series}
               type="line"
-              width="500"
+              width="350"
+              height="250"
             />
 
 );

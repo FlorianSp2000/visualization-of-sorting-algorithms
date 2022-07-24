@@ -32,31 +32,33 @@ class SmallMultiples extends Component {
       return (
         
 <div>
+
                 <div className="small-multiple-grid">
-                    <AscendingMergesort/>                  
-                    <DescendingMergesort/>
-                    <RandomMergesort/>
-                </div>
+                    <AscendingSelectionsort/>                  
+                    <DescendingSelectionsort/>
+                    <RandomSelectionsort/>
+                </div>                   
                 <div className="small-multiple-grid">
                     <AscendingBubblesort/>                  
                     <DescendingBubblesort/>
                     <RandomBubblesort/>
                 </div>    
                 <div className="small-multiple-grid">
-                    <AscendingSelectionsort/>                  
-                    <DescendingSelectionsort/>
-                    <RandomSelectionsort/>
-                </div>      
+                    <AscendingQuicksortMed3/>                  
+                    <DescendingQuicksortMed3/>
+                    <RandomQuicksortMed3/>
+                </div>                 
+                <div className="small-multiple-grid">
+                    <AscendingMergesort/>                  
+                    <DescendingMergesort/>
+                    <RandomMergesort/>
+                </div>        
                 <div className="small-multiple-grid">
                     <AscendingInsertionsort/>                  
                     <DescendingInsertionsort/>
                     <RandomInsertionsort/>
-                </div>                                                
-                <div className="small-multiple-grid">
-                    <AscendingQuicksortMed3/>                  
-                    <DescendingQuicksortMed3/>
-                    <RandomQuicksortMed3/>
-                </div>                       
+                </div>                                                                        
+                      
 </div>
 
            
