@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import React, { Component } from "react";
 
-class DescendingMergesort extends Component {
+class AscendingBubblesort extends Component {
     constructor(props) {
       super(props);
 
@@ -11,14 +11,26 @@ class DescendingMergesort extends Component {
             {
             name: "Runtime in ms",
             data: [
-              {'x': 1024, 'y': 0.033},
-              {'x': 2048, 'y': 0.056},
-              {'x': 4096, 'y': 0.116},
-              {'x': 8192, 'y': 0.228},
-              {'x': 16384, 'y': 0.496},
-              {'x': 32768, 'y': 1.405},
-              {'x': 65536, 'y': 3.798},
-              {'x': 131072, 'y': 7.676},
+                {'x': 1024, 'y': 0.001},
+                {'x': 2048, 'y': 0.001},
+                {'x': 4096, 'y': 0.002},
+                {'x': 8192, 'y': 0.004},
+                {'x': 16384, 'y': 0.008},
+                {'x': 32768, 'y': 0.015},
+                {'x': 65536, 'y': 0.030},
+                {'x': 131072, 'y': 0.060},
+                // {'x': 262144, 'y': 0.001},
+                // {'x': 524288, 'y': 0.001},
+                // {'x': 1048576, 'y': 0.001},
+                // {'x': 2097152, 'y': 0.001},
+                // {'x': 4194304, 'y': 0.001},
+                // {'x': 8388608, 'y': 0.001},
+                // {'x': 16777216, 'y': 0.001},
+                // {'x': 33554432, 'y': 0.001},
+                // {'x': 67108864, 'y': 0.001},
+                // {'x': 134217728, 'y': 0.001},
+                // {'x': 268435456, 'y': 0.001},
+                // {'x': 536870912, 'y': 0.001},
             ]
         },
 
@@ -41,7 +53,7 @@ class DescendingMergesort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Mergesort on descending data',
+            text: 'Bubblesort on ascending data',
             align: 'left'
           },
           grid: {
@@ -63,7 +75,7 @@ class DescendingMergesort extends Component {
                 text: "Runtime (ms)"
             },
             min: 0,
-            max: 10,   
+            max: 0.1,
             tickAmount: 10
           }
         //   xaxis: {
@@ -91,6 +103,6 @@ class DescendingMergesort extends Component {
 }
 }
 
-export default DescendingMergesort;
+export default AscendingBubblesort;
 
 

@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import React, { Component } from "react";
 
-class DescendingMergesort extends Component {
+class RandomBubblesort extends Component {
     constructor(props) {
       super(props);
 
@@ -11,14 +11,14 @@ class DescendingMergesort extends Component {
             {
             name: "Runtime in ms",
             data: [
-              {'x': 1024, 'y': 0.033},
-              {'x': 2048, 'y': 0.056},
-              {'x': 4096, 'y': 0.116},
-              {'x': 8192, 'y': 0.228},
-              {'x': 16384, 'y': 0.496},
-              {'x': 32768, 'y': 1.405},
-              {'x': 65536, 'y': 3.798},
-              {'x': 131072, 'y': 7.676},
+                {'x': 1024, 'y': 0.947},
+                {'x': 2048, 'y': 3.604},
+                {'x': 4096, 'y': 13.132},
+                {'x': 8192, 'y': 61.731},
+                {'x': 16384, 'y': 294.641},
+                {'x': 32768, 'y': 1272.065},
+                {'x': 65536, 'y': 5196.817},
+                {'x': 131072, 'y': 20903.544},
             ]
         },
 
@@ -41,7 +41,7 @@ class DescendingMergesort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Mergesort on descending data',
+            text: 'Bubblesort on random data',
             align: 'left'
           },
           grid: {
@@ -63,12 +63,10 @@ class DescendingMergesort extends Component {
                 text: "Runtime (ms)"
             },
             min: 0,
-            max: 10,   
-            tickAmount: 10
+            max: 21000,
+            tickAmount: 7
           }
-        //   xaxis: {
-        //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],
-        //   }
+
         },
       
       
@@ -91,6 +89,6 @@ class DescendingMergesort extends Component {
 }
 }
 
-export default DescendingMergesort;
+export default RandomBubblesort;
 
 
