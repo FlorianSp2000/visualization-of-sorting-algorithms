@@ -33,11 +33,6 @@ class SmallMultiples extends Component {
         
 <div>
                 <div className="small-multiple-grid">
-                    <UnsortedSelectionBubble />
-                    <SortedSelectionBubble /> 
-
-                </div>
-                <div className="small-multiple-grid">
                     <AscendingMergesort/>                  
                     <DescendingMergesort/>
                     <RandomMergesort/>
