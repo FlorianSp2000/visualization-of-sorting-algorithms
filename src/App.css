@@ -44,3 +44,17 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.apexcharts-title-text {
+  font-weight: 600;
+}
+
+.apexcharts-yaxis-title-text {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.apexcharts-xaxis-title-text {
+  font-weight: 500;
+  font-size: 14px;
+}

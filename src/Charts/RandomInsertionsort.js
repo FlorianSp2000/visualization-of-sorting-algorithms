@@ -34,6 +34,13 @@ class RandomInsertionsort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class RandomInsertionsort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Insertionsort on random data',
-            align: 'left'
+            text: 'Insertionsort, random data',
+            align: 'center'
           },
           grid: {
             row: {
@@ -104,12 +111,15 @@ class RandomInsertionsort extends Component {
             },
             labels: {
                 formatter: function(val) {
+                    if (val==1500) {
+                        return "1,500";
+                    }
                     return val.toFixed(0);
                 }
-            },               
+            },                  
             min: 0,
             max: 1500,
-            tickAmount: 5
+            tickAmount: 2
           }
         //   xaxis: {
         //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],

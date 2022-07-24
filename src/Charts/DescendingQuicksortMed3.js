@@ -34,6 +34,13 @@ class DescendingQuicksortMed3 extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },             
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class DescendingQuicksortMed3 extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Quicksort (Median of 3) on descending data',
-            align: 'left'
+            text: 'Quicksort (Median of 3), descending data',
+            align: 'center'
           },
           grid: {
             row: {
@@ -104,7 +111,15 @@ class DescendingQuicksortMed3 extends Component {
             },
             min: 0,
             max: 2,
-            tickAmount: 5
+            tickAmount: 2,
+            labels: {
+                formatter: function(val) {
+                    if (val==0) {
+                        return "0"
+                    }
+                    return val.toFixed(0);
+                }
+              },               
           }
         //   xaxis: {
         //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],

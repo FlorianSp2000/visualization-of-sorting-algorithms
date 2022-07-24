@@ -34,6 +34,13 @@ class DescendingInsertionsort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },             
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class DescendingInsertionsort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Insertionsort on descending data',
-            align: 'left'
+            text: 'Insertionsort, descending data',
+            align: 'center'
           },
           grid: {
             row: {
@@ -104,12 +111,15 @@ class DescendingInsertionsort extends Component {
             },
             labels: {
                 formatter: function(val) {
-                    return val.toFixed(0);
+                    if (val==0) {
+                        return "0";
+                    }
+                    return (val/1000).toFixed(0) + ",000";
                 }
-            },               
+            },                
             min: 0,
             max: 3000,
-            tickAmount: 5
+            tickAmount: 2
           }
         //   xaxis: {
         //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],

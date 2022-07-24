@@ -34,6 +34,13 @@ class RandomMergesort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },             
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class RandomMergesort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Mergesort on random data',
-            align: 'left'
+            text: 'Mergesort, random data',
+            align: 'center'
           },
           grid: {
             row: {
@@ -109,7 +116,7 @@ class RandomMergesort extends Component {
           },             
             min: 0,
             max: 20,    
-            tickAmount: 5        
+            tickAmount: 2    
           }
         //   xaxis: {
         //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],

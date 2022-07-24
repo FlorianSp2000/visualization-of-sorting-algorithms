@@ -34,6 +34,13 @@ class AscendingBubblesort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },          
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class AscendingBubblesort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Bubblesort on ascending data',
-            align: 'left'
+            text: 'Bubblesort, ascending data',
+            align: 'center',
           },
           grid: {
             row: {
@@ -104,7 +111,15 @@ class AscendingBubblesort extends Component {
             },
             min: 0,
             max: 0.1,
-            tickAmount: 5
+            tickAmount: 2,
+            labels: {
+                formatter: function(val) {
+                    if (val==0) {
+                        return "0"
+                    }
+                    return val.toFixed(2);
+                }
+              },             
           }
 
         },

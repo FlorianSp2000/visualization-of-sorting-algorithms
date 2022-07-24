@@ -34,6 +34,13 @@ class RandomBubblesort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },             
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class RandomBubblesort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Bubblesort on random data',
-            align: 'left'
+            text: 'Bubblesort, random data',
+            align: 'center'
           },
         colors: ["#0072b2"],     
         annotations: {
@@ -76,11 +83,6 @@ class RandomBubblesort extends Component {
                 }                                   
             ]
         },        
-        //   default_bar_color = "#f0e442";//"rgb(240,228,66)";
-        //   finished_bar_color = "#009e73";//"rgb(0,158,115)";
-        //   pivot_bar_color = "#0072b2";//"rgb(0,114,178)";
-        //   left_running_bar_color = "#d55e00";//"rgb(213,94,0)";
-        //   right_running_bar_color = "#cc79a7";//"rgb(204,121,167)";          
           grid: {
             row: {
               colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
@@ -109,7 +111,10 @@ class RandomBubblesort extends Component {
             },
             labels: {
                 formatter: function(val) {
-                    return val.toFixed(0);
+                    if (val==0) {
+                        return "0";
+                    }
+                    return (val/1000).toFixed(0) + ",000";
                 }
             },            
             min: 0,

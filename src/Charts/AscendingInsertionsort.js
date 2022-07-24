@@ -34,6 +34,13 @@ class AscendingInsertionsort extends Component {
                 show: false,
             }
           },
+          tooltip: {
+            y: {
+                formatter: function(val) {
+                    return val;
+                },
+            },            
+          },          
           dataLabels: {
             enabled: false
           },
@@ -41,8 +48,8 @@ class AscendingInsertionsort extends Component {
             curve: 'straight'
           },
           title: {
-            text: 'Insertionsort on ascending data',
-            align: 'left'
+            text: 'Insertionsort, ascending data',
+            align: 'center'
           },
           grid: {
             row: {
@@ -104,7 +111,15 @@ class AscendingInsertionsort extends Component {
             },          
             min: 0,
             max: 0.2,
-            tickAmount: 4
+            tickAmount: 2,
+            labels: {
+                formatter: function(val) {
+                    if (val==0) {
+                        return "0"
+                    }
+                    return val.toFixed(1);
+                }
+              },               
           }
         //   xaxis: {
         //     categories: ['100,000', '200,000', '300,000', '400,000', '500,000'],
