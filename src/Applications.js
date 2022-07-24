@@ -2,7 +2,10 @@ import React from 'react';
 import ImageSort from './ImageSort';
 function Applications(props) {
     return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '80%'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '80%', marginTop: '30px'}}>
+            <section className="standard-header">
+                Further applications
+            </section>            
             <div>
                 <p>As we have seen we can sort numbers in various ways. Through our ability to sort numbers we are able to sort texts 
                     using a coding scheme, such as UTF-8, and we can even sort colors:
