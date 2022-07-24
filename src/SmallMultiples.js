@@ -8,6 +8,9 @@ import RandomMergesort from "./Charts/RandomMergesort";
 import AscendingBubblesort from "./Charts/AscendingBubblesort";
 import DescendingBubblesort from "./Charts/DescendingBubblesort";
 import RandomBubblesort from "./Charts/RandomBubblesort";
+import AscendingSelectionsort from "./Charts/AscendingSelectionsort";
+import DescendingSelectionsort from "./Charts/DescendingSelectionsort";
+import RandomSelectionsort from "./Charts/RandomSelectionsort";
 
 
 
@@ -40,7 +43,12 @@ class SmallMultiples extends Component {
                     <AscendingBubblesort/>                  
                     <DescendingBubblesort/>
                     <RandomBubblesort/>
-                </div>                
+                </div>    
+                <div className="small-multiple-grid">
+                    <AscendingSelectionsort/>                  
+                    <DescendingSelectionsort/>
+                    <RandomSelectionsort/>
+                </div>                                
 </div>
 
            
