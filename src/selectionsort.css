@@ -145,3 +145,8 @@ align-items: center;
 .small-multiple-grid {
     display: flex;
 }
+
+.tufty-gif {
+    width: 250px;
+    height: 250px;
+}

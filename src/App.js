@@ -8,7 +8,6 @@ import Quicksort from './Quicksort';
 import Mergesort from './Mergesort';
 import Insertionsort from './Insertionsort';
 
-
 function App() {
   return (
     <div className="App">
