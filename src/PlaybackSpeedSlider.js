@@ -49,7 +49,7 @@ const PlaybackSpeedSlider = (props) => {
           valueLabelFormat={valueLabelFormat}
           getAriaValueText={valuetext}
           step={null}
-          valueLabelDisplay="auto"
+          valueLabelDisplay="off"
           marks={marks}
           sx={{color: "#24a0ed"}}
           onChange={handleChange}

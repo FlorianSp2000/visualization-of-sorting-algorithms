@@ -53,8 +53,6 @@ class ComplexityHeatmap extends Component {
             fontSize: 15
           },
           formatter: function (val, opts) {
-            console.log("val", val)
-            console.log("opts", opts)
             switch(val) {
               case 1:
                   return 'Ω(N^2)'
@@ -65,16 +63,16 @@ class ComplexityHeatmap extends Component {
               case 3:
                 return 'O(N^2)'
 
-                case 4:
+                case 8:
                   return 'O(N log(N))'
                 
-                case 5:
+                case 10:
                   return 'Ω(N log(N))'
                   
-                case 6:
+                case 12:
                   return 'Θ(N log(N))'
               
-                case 7:
+                case 17:
                   return 'Ω(N)'
     
               }
@@ -100,7 +98,7 @@ class ComplexityHeatmap extends Component {
           name: "Bubble Sort",
           data: [{
             x: 'W1',
-            y: 7//
+            y: 17//
           }, {
             x: 'W2',
             y: 2//
@@ -114,10 +112,10 @@ class ComplexityHeatmap extends Component {
             name: "Quick Sort",
             data: [{
               x: 'W1',
-              y: 5//
+              y: 10//
             }, {
               x: 'W2',
-              y: 6//
+              y: 12//
             }, {
               x: 'W3',
               y: 3//
@@ -128,13 +126,13 @@ class ComplexityHeatmap extends Component {
           name: "Merge Sort",
           data: [{
             x: 'W1',
-            y: 5//
+            y: 10//
           }, {
             x: 'W2',
-            y: 6//
+            y: 12//
           }, {
             x: 'W3',
-            y: 4//
+            y: 8//
           }, 
       ]
       },
@@ -142,7 +140,7 @@ class ComplexityHeatmap extends Component {
         name: "Insertion Sort",
         data: [{
           x: 'W1',
-          y: 7//
+          y: 17//
         }, {
           x: 'W2',
           y: 2//

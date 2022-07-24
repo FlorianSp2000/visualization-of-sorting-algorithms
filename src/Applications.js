@@ -13,10 +13,11 @@ function Applications(props) {
             </div>
             <div>
                 <p>
-                    Sorting a shuffled image of a color spectrum using Bubblesort results in the following:
+                    Sorting a shuffled image of a color spectrum using Bubble Sort (left) and Quick sort (right) results in the following:
                     </p>
                     <br></br>
-                <img src="bubble_sort_color.gif" ></img>
+                <img src="bubble_sort_color.gif" style={{margin: '16px'}}></img>
+                <img src="quick_sort_color.gif" style={{margin: '16px', width: '384px', height:'384px'}}></img>
             </div>
             <br></br>
             <div>

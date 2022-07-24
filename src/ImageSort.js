@@ -11,7 +11,6 @@ class ImageSort extends React.Component {
   componentDidMount() {
     this.sketch = new p5(sketch, this.myRef.current)
   }
-
   render() {
     return (
       <div ref={this.myRef}>

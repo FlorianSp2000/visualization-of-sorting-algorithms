@@ -82,7 +82,7 @@
     border: white;
     margin-top: 4vw;
     cursor:pointer;
-
+    min-width: 158px;
 }
 
 .pause-button {
