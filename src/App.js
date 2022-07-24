@@ -21,7 +21,7 @@ function App() {
         <p style={{fontSize: '15px'}}>A project by Philipp Davydov, Jonas Harriehausen and Florian Sprick</p>
         <br></br>
         <Intro />
-        <div style={{width: '80%'}}><hr></hr></div>
+        {/* <div style={{width: '80%'}}><hr></hr></div> */}
         <br></br>
           <Selectionsort>
 
