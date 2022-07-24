@@ -373,7 +373,9 @@ function disable()
     return (
       <>
         <section className="selectionsort-head">Selection Sort Visualizer</section>
+        <div style={{width: '80%'}}>
         In every iteration, the minimum (red) is found and switched with the leftmost unsorted bar (dark blue).        
+        </div>
             <section className="selectionsort-data-container"></section> 
 
         <div className="sorting-toolbar">

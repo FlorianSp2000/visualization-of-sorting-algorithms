@@ -4,7 +4,7 @@ import SmallMultiples from './SmallMultiples';
 
 function GeneralStats(props) {
     return (
-        <div>
+        <div style={{width: '80%'}}>
             <hr></hr>
             General Statistics and Comparisons between different sorting algorithms:
 

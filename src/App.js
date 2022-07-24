@@ -17,6 +17,7 @@ function App() {
         </h1>
         <br></br>
         <Intro />
+        <div style={{width: '80%'}}><hr></hr></div>
         <br></br>
           <Selectionsort>
 

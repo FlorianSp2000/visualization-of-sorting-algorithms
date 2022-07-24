@@ -598,7 +598,10 @@ function disable()
     return (
       <>
         <section className="mergesort-head">Merge Sort Visualizer</section>
-        The algorithm follows the principle "divide and conquer". The array is divided into two halfs (orange and red) which are sorted recursively. Then, the two sorted halfs are combined again to form the final sorted array.
+        <div style={{width: '80%'}}>
+        The algorithm follows the principle "divide and conquer". The array is divided into two halfs (orange and red) which are sorted recursively. Then, the two sorted halfs are combined again to form the final sorted array.        
+        </div>
+        
           <section className="mergesort-data-container" id="mergesort-data-container-1"></section> 
           <section className="mergesort-data-container" id="mergesort-data-container-2" height="0"></section>           
         <div className="sorting-toolbar">

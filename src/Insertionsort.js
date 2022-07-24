@@ -309,7 +309,10 @@ function disable()
     return (
       <>
         <section className="insertionsort-head">Insertion Sort Visualizer</section>
+        <div style={{width: '80%'}}>
         The algorithm goes through the array left to right and moves every element to the left, as long as its smaller than its left neighbor. This way, there is a sorted sub-array on the left side that grows with every iteration.
+        </div>
+        
           <section className="insertionsort-data-container"></section> 
         <div className="sorting-toolbar">
           <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive} sortingIsActive={sortingIsActive} togglePauseButton={togglePauseButton}/>
