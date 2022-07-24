@@ -12,6 +12,44 @@ class ComplexityHeatmap extends Component {
         },
         xaxis: {
           categories: ["Best Case", "Average Case", "Worst Case"]
+        },
+        tooltip: {
+          enabled: false,
+        },
+        title: {
+          text: "Complexity Heatmap",
+          style: {
+            fontSize: '18px'
+          }
+        },
+        dataLabels: {
+            formatter: function (val, opts) {
+              console.log("val", val)
+              console.log("opts", opts)
+              switch(val) {
+                case 1:
+                    return 'Ω(N^2)'
+
+                case 2:
+                  return 'Θ(N^2)'
+
+                case 3:
+                  return 'O(N^2)'
+
+                  case 4:
+                    return 'O(N log(N))'
+                  
+                  case 5:
+                    return 'Ω(N log(N))'
+                    
+                  case 6:
+                    return 'Θ(N log(N))'
+                
+                  case 7:
+                    return 'Ω(N)'
+      
+                }
+          },
         }
       },
       series: [
@@ -19,13 +57,13 @@ class ComplexityHeatmap extends Component {
           name: "Selection Sort",
           data: [{
             x: 'W1',
-            y: 'Ω(N^2)'
+            y: 1
           }, {
             x: 'W2',
-            y: 'Θ(N^2'
+            y: 2
           }, {
             x: 'W3',
-            y: 'O(N^2)'
+            y: 3
           }, 
         ]
         },
@@ -33,13 +71,13 @@ class ComplexityHeatmap extends Component {
           name: "Bubble Sort",
           data: [{
             x: 'W1',
-            y: 'Ω(N)'
+            y: 7//
           }, {
             x: 'W2',
-            y: 'Θ(N^2)'
+            y: 2//
           }, {
             x: 'W3',
-            y: 'O(N^2)'
+            y: 3//
           }, 
         ]
         },
@@ -47,81 +85,62 @@ class ComplexityHeatmap extends Component {
             name: "Quick Sort",
             data: [{
               x: 'W1',
-              y: 'Ω(N log(N))'
+              y: 5//
             }, {
               x: 'W2',
-              y: 'Θ(N log(N)'
+              y: 6//
             }, {
               x: 'W3',
-              y: 'O(N^2)'
+              y: 3//
             }, 
         ]
-        }
+        },
+        {
+          name: "Merge Sort",
+          data: [{
+            x: 'W1',
+            y: 5//
+          }, {
+            x: 'W2',
+            y: 6//
+          }, {
+            x: 'W3',
+            y: 4//
+          }, 
+      ]
+      },
+      {
+        name: "Insertion Sort",
+        data: [{
+          x: 'W1',
+          y: 7//
+        }, {
+          x: 'W2',
+          y: 2//
+        }, {
+          x: 'W3',
+          y: 3//
+        }, 
+    ]
+    }
+
       ]
         };
   }
 
   render() {
     return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
+      <div style={{display: 'flex', justifyContent: 'center'}}>
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="heatmap"
-              width="500"
+              width="750"
             />
           </div>
-        </div>
-      </div>
     );
   }
 }
 
 export default ComplexityHeatmap;
 
-// series: [
-//     {
-//       name: "Selection Sort",
-//       data: [{
-//         x: 'W1',
-//         y: 'Ω(N^2)'
-//       }, {
-//         x: 'W2',
-//         y: 'Θ(N^2'
-//       }, {
-//         x: 'W3',
-//         y: 'O(N^2)'
-//       }, 
-//     ]
-//     },
-//     {
-//       name: "Bubble Sort",
-//       data: [{
-//         x: 'W1',
-//         y: 'Ω(N)'
-//       }, {
-//         x: 'W2',
-//         y: 'Θ(N^2)'
-//       }, {
-//         x: 'W3',
-//         y: 'O(N^2)'
-//       }, 
-//     ]
-//     },
-//     {
-//         name: "Quick Sort",
-//         data: [{
-//           x: 'W1',
-//           y: 'Ω(N log(N))'
-//         }, {
-//           x: 'W2',
-//           y: 'Θ(N log(N)'
-//         }, {
-//           x: 'W3',
-//           y: 'O(N^2)'
-//         }, 
-//     ]
-//     }
-//   ]
