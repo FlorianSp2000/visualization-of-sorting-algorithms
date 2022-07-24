@@ -14,8 +14,8 @@ const Intro = () => {
         Sorting is a very classic problem of reordering comparable items into a certain order.
         But how should we visualize it?
         <br></br>
-        Above could be Edward Tufte's answer. While trying to maximize the data ink ratio, the animations lack, among other things, color and labeling. 
-        Nevertheless, surprisingly enough, one might already get a rough idea of how the different algorithms work.
+        Above could be an extreme example of Edward Tufte's answer. While having a good data ink ratio, the animations lack, among other things, color and labeling and can be hard to follow. 
+        Nevertheless, one might already get a rough idea of how the different algorithms work.
         <br></br>
         Since the modern advances in animation, we know better. 
         Discontinuous changes disrupt the viewer's attention, and saccadic blindness (we don't see things while we move our eye focus to a different point) must be reduced. 

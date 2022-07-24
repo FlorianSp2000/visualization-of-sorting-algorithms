@@ -5,7 +5,7 @@ function Applications(props) {
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '80%'}}>
             <div>
                 <p>As we have seen we can sort numbers in various ways. Through our ability to sort numbers we are able to sort texts 
-                    using a coding scheme, such as UTF-8 for example or even to sort colors:
+                    using a coding scheme, such as UTF-8, and we can even sort colors:
                      
                 </p>
                 <img src="hsv_spectrum.png" style={{margin: '16px'}}></img>
@@ -20,7 +20,7 @@ function Applications(props) {
             </div>
             <br></br>
             <div>
-                <ImageSort />
+                {/* <ImageSort /> */}
             </div>
         </div>
     );

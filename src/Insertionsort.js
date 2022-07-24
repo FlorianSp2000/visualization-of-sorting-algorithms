@@ -70,7 +70,7 @@ function generatebars(num = 20, sequence) {
   deletebars()
 
   // if sequence is null, generate sequence from random numbers
-  if (sequence == null) {
+  if (sequence == null || sequence[0]=='') {
     var sequence = new Array(num);
     for (let i=0; i<num; i+=1) {
       sequence[i] = String(Math.floor(Math.random() * 99) + 1); 

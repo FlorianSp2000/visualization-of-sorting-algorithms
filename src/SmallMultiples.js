@@ -32,7 +32,6 @@ class SmallMultiples extends Component {
       return (
         
 <div>
-
                 <div className="small-multiple-grid">
                     <AscendingSelectionsort/>                  
                     <DescendingSelectionsort/>

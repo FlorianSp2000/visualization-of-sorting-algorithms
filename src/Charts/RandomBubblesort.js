@@ -51,7 +51,7 @@ class RandomBubblesort extends Component {
             text: 'Bubblesort, random data',
             align: 'center'
           },
-        colors: ["#0072b2"],     
+        colors: ["#000"],//["#0072b2"],     
         annotations: {
             position: "back",
             yaxis: [

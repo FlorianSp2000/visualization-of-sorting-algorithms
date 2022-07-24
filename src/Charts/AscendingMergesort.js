@@ -57,7 +57,7 @@ class AscendingMergesort extends Component {
               opacity: 0.5
             },
           },
-          colors: ["#0072b2"],           
+          colors: ["#000"],//["#0072b2"],           
           annotations: {
             position: "back",
             yaxis: [

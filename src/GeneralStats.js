@@ -11,7 +11,12 @@ function GeneralStats(props) {
             <br></br>
             <br></br>
             <ComplexityHeatmap />
-            {/* <SmallMultiples /> */}
+            <div style={{marginBottom: '20px'}}>
+            Time complexity of the sorting algorithms for different cases
+            </div>
+            
+            <br></br>
+            <SmallMultiples />
         </div>
     );
 }
