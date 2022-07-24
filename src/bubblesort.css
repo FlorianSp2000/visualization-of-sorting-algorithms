@@ -63,3 +63,10 @@ padding: 25px;
     margin-bottom: 8px;
 
 }
+
+.footer-text {
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

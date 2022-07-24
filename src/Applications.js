@@ -11,10 +11,9 @@ function Applications(props) {
                 <img src="hsv_spectrum.png" style={{margin: '16px'}}></img>
                 <img src="random_noise.png" style={{margin: '16px'}}></img>
             </div>
-            <div>
+            <div style={{ borderBottom: "2px solid rgb(0,0,0,0.1)"}}>
                 <p>
-                    Sorting a shuffled image of a color spectrum using Bubble Sort (left) and Quick sort (right) results in the following:
-                    </p>
+                    Sorting a shuffled image of a color spectrum using Bubble Sort (left) and Quick sort (right) results in the following:</p>
                     <br></br>
                 <img src="bubble_sort_color.gif" style={{margin: '16px'}}></img>
                 <img src="quick_sort_color.gif" style={{margin: '16px', width: '384px', height:'384px'}}></img>
