@@ -1,6 +1,6 @@
 import React from 'react';
 import TuftyGifs from './TuftyGifs'
-
+import ImageSort from './ImageSort';
 const Intro = () => {
     return (
         <>
@@ -14,6 +14,12 @@ const Intro = () => {
             Definition: 
                 Sorting is a very classic problem of reordering comparable items into a certain order.
         </div>
+        <br></br>
+        <div>
+            We can use sorting algorithms to rearrange the pixels of an image.
+        </div>
+        <br></br>
+        <ImageSort />
         </>
     );
 };
