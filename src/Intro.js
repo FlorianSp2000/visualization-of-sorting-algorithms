@@ -4,7 +4,7 @@ import ImageSort from './ImageSort';
 const Intro = () => {
     return (
         <>
-        <div style={{marginBottom: '12px', width: '80%'}}>
+        <div style={{marginBottom: '18px', width: '80%'}}>
             Sorting Algorithms are often used as one of the introductory topics within computer science.
             Since it is such a foundational yet large topic, appropriate visualizations are necessary
             to ease the learning process.

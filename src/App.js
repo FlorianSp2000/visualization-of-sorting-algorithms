@@ -15,9 +15,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
+        <h1 style={{marginBottom: '0px'}}>
           Visualization of Sorting Algorithms
         </h1>
+        <p style={{fontSize: '15px'}}>A project by Philipp Davydov, Jonas Harriehausen and Florian Sprick</p>
         <br></br>
         <Intro />
         <div style={{width: '80%'}}><hr></hr></div>
