@@ -273,7 +273,7 @@ async function MergeSort(delay = delayy) {
             await new Promise((resolve) =>
                 setTimeout(() => {
                 resolve();
-                }, delay*5)
+                }, delay)
             );          
             // shift bars
             for (let i=mid; i<bars.length; i+=1) {
@@ -322,7 +322,7 @@ async function MergeSort(delay = delayy) {
             await new Promise((resolve) =>
                 setTimeout(() => {
                 resolve();
-                }, delay*5)
+                }, delay)
             );
             // // recursive call
             await mergesort_rek(left, mid-1, bars_shift);
@@ -391,7 +391,7 @@ async function MergeSort(delay = delayy) {
           await new Promise((resolve) =>
             setTimeout(() => {
             resolve();
-            }, delay*5)
+            }, delay)
           );   
 
           i+=1;
@@ -406,7 +406,7 @@ async function MergeSort(delay = delayy) {
           await new Promise((resolve) =>
             setTimeout(() => {
             resolve();
-            }, delay*5)
+            }, delay)
           );   
 
           j+=1;
@@ -435,7 +435,7 @@ async function MergeSort(delay = delayy) {
         await new Promise((resolve) =>
           setTimeout(() => {
           resolve();
-          }, delay*5)
+          }, delay)
         );   
 
         i+=1;
@@ -463,7 +463,7 @@ async function MergeSort(delay = delayy) {
         await new Promise((resolve) =>
           setTimeout(() => {
           resolve();
-          }, delay*5)
+          }, delay)
         );
 
         j+=1;
@@ -479,7 +479,7 @@ async function MergeSort(delay = delayy) {
       await new Promise((resolve) =>
         setTimeout(() => {
         resolve();
-        }, delay*5)
+        }, delay)
       );
       
 
@@ -598,6 +598,7 @@ function disable()
     return (
       <>
         <section className="mergesort-head">Merge Sort Visualizer</section>
+        The algorithm follows the principle "divide and conquer". The array is divided into two halfs (orange and red) which are sorted recursively. Then, the two sorted halfs are combined again to form the final sorted array.
           <section className="mergesort-data-container" id="mergesort-data-container-1"></section> 
           <section className="mergesort-data-container" id="mergesort-data-container-2" height="0"></section>           
         <div className="sorting-toolbar">

@@ -24,7 +24,7 @@ class ComplexityHeatmap extends Component {
           categories: ["Best Case", "Average Case", "Worst Case"],
           labels: {
             style: {
-              fontSize: 15,
+              fontSize: 18,
             }
           }
         },

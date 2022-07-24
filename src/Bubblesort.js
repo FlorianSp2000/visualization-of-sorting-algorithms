@@ -277,6 +277,7 @@ function disable()
     return (
       <>
         <section className="bubblesort-head">Bubble Sort Visualizer</section>
+        In every iteration, the algorithm goes through the array from left to right and switches two adjacent bars (red) if they are in the wrong order. This way, the maxima are sorted to the right side of the array.
           <section className="bubblesort-data-container"></section> 
         <div className="sorting-toolbar">
           <SequenceInputButton processInputSequence={processInputSequence} resetSortingStatus={setSortingIsActive} sortingIsActive={sortingIsActive} togglePauseButton={togglePauseButton}/>

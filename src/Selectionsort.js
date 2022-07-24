@@ -373,6 +373,7 @@ function disable()
     return (
       <>
         <section className="selectionsort-head">Selection Sort Visualizer</section>
+        In every iteration, the minimum (red) is found and switched with the leftmost unsorted bar (dark blue).        
             <section className="selectionsort-data-container"></section> 
 
         <div className="sorting-toolbar">

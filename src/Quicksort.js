@@ -608,6 +608,8 @@ function disable()
     return (
       <>
       <section className="quicksort-head">Quick Sort Visualizer</section>
+      The algorithm first chooses a pivot element (dark blue). Then, the other bars (red and orange) are permutated in such a fashion, that the array is split into two halfs: one with values smaller than the pivot value and one with values larger than the pivot value. The pivot element is put between the two halfs and thereby reaches its final position, while the halfs are sorted recursively.<br></br>
+      There are many ways to pick a pivot element, e.g. choose the rightmost element, or choose three random elements and use their median as a pivot (best strategy).
           <section className="quicksort-data-container"></section> 
 
       <div className="sorting-toolbar">
