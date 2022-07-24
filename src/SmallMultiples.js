@@ -1,7 +1,5 @@
 import Chart from "react-apexcharts";
 import React, { Component } from "react";
-import UnsortedSelectionBubble from "./Charts/UnsortedSelectionBubble";
-import SortedSelectionBubble from "./Charts/SortedSelectionBubble";
 import AscendingMergesort from "./Charts/AscendingMergesort";
 import DescendingMergesort from "./Charts/DescendingMergesort";
 import RandomMergesort from "./Charts/RandomMergesort";
