@@ -1,4 +1,3 @@
-import Chart from "react-apexcharts";
 import React, { Component } from "react";
 import AscendingMergesort from "./Charts/AscendingMergesort";
 import DescendingMergesort from "./Charts/DescendingMergesort";
@@ -6,9 +5,9 @@ import RandomMergesort from "./Charts/RandomMergesort";
 import AscendingBubblesort from "./Charts/AscendingBubblesort";
 import DescendingBubblesort from "./Charts/DescendingBubblesort";
 import RandomBubblesort from "./Charts/RandomBubblesort";
-import AscendingSelectionsort from "./Charts/AscendingSelectionsort";
-import DescendingSelectionsort from "./Charts/DescendingSelectionsort";
-import RandomSelectionsort from "./Charts/RandomSelectionsort";
+import AscendingSelectionsort from './Charts/AscendingSelectionsort';
+import DescendingSelectionsort from './Charts/DescendingSelectionsort';
+import RandomSelectionsort from './Charts/RandomSelectionsort';
 import AscendingInsertionsort from "./Charts/AscendingInsertionsort";
 import DescendingInsertionsort from "./Charts/DescendingInsertionsort";
 import RandomInsertionsort from "./Charts/RandomInsertionsort";

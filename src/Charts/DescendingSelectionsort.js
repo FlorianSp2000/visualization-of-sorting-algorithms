@@ -1,7 +1,7 @@
 import Chart from "react-apexcharts";
 import React, { Component } from "react";
 
-class AscendingSelectionsort extends Component {
+class DescendingSelectionsort extends Component {
     constructor(props) {
       super(props);
 
@@ -102,7 +102,7 @@ class AscendingSelectionsort extends Component {
                 }
               },             
             min: 0,
-            max: 150000,
+            // max: 150000,
             tickAmount: 3,
           },
           yaxis: {
@@ -147,6 +147,6 @@ class AscendingSelectionsort extends Component {
 }
 }
 
-export default AscendingSelectionsort;
+export default DescendingSelectionsort;
 
 

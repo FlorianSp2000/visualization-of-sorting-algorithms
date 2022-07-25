@@ -102,7 +102,7 @@ class AscendingInsertionsort extends Component {
                 }
               },             
             min: 0,
-            max: 150000,
+            // max: 150000,
             tickAmount: 3,
           },
           yaxis: {
