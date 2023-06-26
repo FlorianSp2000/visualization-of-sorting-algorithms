@@ -32,7 +32,7 @@ function SequenceInputButton(props) {
         <h3 className="sequence-prompt">Enter Sequence of Integers:</h3>
         <FormControl className="btn3" sx={{ m: 1, width: '35ch' , 
           '& .Mui-focused': {
-            color: '#000',
+            color: 'rgb(0,0,0,0.54)',
           },
           '.Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: 'transparent !important',
