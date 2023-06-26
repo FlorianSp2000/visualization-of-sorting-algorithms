@@ -63,13 +63,13 @@ class ComplexityHeatmap extends Component {
               case 3:
                 return 'O(N^2)'
 
-                case 8:
+                case 11:
                   return 'O(N log(N))'
                 
-                case 10:
+                case 9:
                   return 'Ω(N log(N))'
                   
-                case 12:
+                case 10:
                   return 'Θ(N log(N))'
               
                 case 17:
@@ -81,63 +81,7 @@ class ComplexityHeatmap extends Component {
       },
       series: [
         {
-          name: "Selection Sort",
-          data: [{
-            x: 'W1',
-            y: 1
-          }, {
-            x: 'W2',
-            y: 2
-          }, {
-            x: 'W3',
-            y: 3
-          }, 
-        ]
-        },
-        {
-          name: "Bubble Sort",
-          data: [{
-            x: 'W1',
-            y: 17//
-          }, {
-            x: 'W2',
-            y: 2//
-          }, {
-            x: 'W3',
-            y: 3//
-          }, 
-        ]
-        },
-        {
-            name: "Quick Sort",
-            data: [{
-              x: 'W1',
-              y: 10//
-            }, {
-              x: 'W2',
-              y: 12//
-            }, {
-              x: 'W3',
-              y: 3//
-            }, 
-        ]
-        },
-        {
-          name: "Merge Sort",
-          data: [{
-            x: 'W1',
-            y: 10//
-          }, {
-            x: 'W2',
-            y: 12//
-          }, {
-            x: 'W3',
-            y: 8//
-          }, 
-      ]
-      },
-      {
-        name: "Insertion Sort",
+          name: "Insertion Sort",
         data: [{
           x: 'W1',
           y: 17//
@@ -148,16 +92,72 @@ class ComplexityHeatmap extends Component {
           x: 'W3',
           y: 3//
         }, 
-    ]
-    }
-
       ]
-        };
-  }
+    },
+    {
+      name: "Merge Sort",
+      data: [{
+        x: 'W1',
+        y: 9//
+      }, {
+        x: 'W2',
+        y: 10//
+      }, {
+        x: 'W3',
+        y: 11//
+      }, 
+    ]
+  },
+    {
+      name: "Quick Sort",
+      data: [{
+          x: 'W1',
+          y: 9//
+        }, {
+          x: 'W2',
+          y: 10//
+        }, {
+          x: 'W3',
+          y: 3//
+        }, 
+      ]
+    },
+    
+    {
+      name: "Bubble Sort",
+      data: [{
+        x: 'W1',
+        y: 17//
+      }, {
+        x: 'W2',
+        y: 2//
+      }, {
+        x: 'W3',
+        y: 3//
+      }, 
+    ]
+    },
+    {
+      name: "Selection Sort",
+      data: [{
+        x: 'W1',
+        y: 1
+      }, {
+        x: 'W2',
+        y: 2
+      }, {
+        x: 'W3',
+        y: 3
+      }, 
+    ]
+    },
+  ]
+};
+}
 
-  render() {
-    return (
-      <div style={{display: 'flex', justifyContent: 'center', marginBottom: "30px"}}>
+render() {
+  return (
+    <div style={{display: 'flex', justifyContent: 'center', marginBottom: "30px"}}>
             <Chart
               options={this.state.options}
               series={this.state.series}
