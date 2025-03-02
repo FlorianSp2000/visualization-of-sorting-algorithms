@@ -1,7 +1,35 @@
-# visualization
+# Visualization of Sorting Algorithms
 
-Start the project by navigating to the visualization folder, executing "npm install" and then "npm start". The server will run at localhost:3000.  
+This repository is part of the coursework deliverable for the **Visualization 2022** course at the **University of Göttingen**. It features interactive visualizations of well-known sorting algorithms, including **Quicksort** and **Merge Sort**, built with **React.js**. Additionally, the project includes **time complexity charts** to illustrate performance differences.
 
-The current version of the project includes time complexity charts with unevenly scaled x-axis. This issue arises from a bug in the ApexCharts version we are using, which causes our page to encounter compatibility problems when customized x-axis values are utilized on Google Chrome. To view the intended version of the charts, it is necessary to modify all .js files located in the src/Charts folder. This modification involves uncommenting the lines that specify the intended maximum value for the x-axis.
+## Example Visualization
+![Sorting Algorithm Visualizer](public/visualizer_example.png)
 
-Please note that making these modifications will resolve the issue and allow the charts to display correctly in other web browsers, such as Firefox.
+## 🚀 Getting Started
+To run the project locally:
+1. **Navigate to the project folder**
+```sh
+cd visualization
+```
+2. **Install dependencies**
+
+```sh
+npm install
+```
+
+3. **Start the development server**
+```sh
+npm start
+```
+4. **Open your browser and visit** http://localhost:3000
+
+
+## ⚠️ Known Issue: Time Complexity Chart Scaling
+The **x-axis scaling** in time complexity charts may appear **uneven** due to a **bug in ApexCharts** when using customized x-axis values in **Google Chrome**.
+
+### Workaround
+To correctly display the charts in **Firefox** or other browsers:
+1. **Modify all** `.js` files in the `src/Charts` folder.
+2. **Uncomment the lines** specifying the intended maximum x-axis value.
+
+Once modified, the charts should render correctly in supported browsers.
